@@ -13,8 +13,7 @@ public class Bullet : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-        direction.x = 1;
-        direction.y = 1;
+
 	}
 	
 	// Update is called once per frame
