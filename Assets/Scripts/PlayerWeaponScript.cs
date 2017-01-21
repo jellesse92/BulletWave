@@ -27,9 +27,9 @@ public class PlayerWeaponScript : MonoBehaviour {
     const float TIER3_ATTACK_LEN = 30f;
 
     //Charging tier times
-    const float CHARGE_TIER1 = .5f;
-    const float CHARGE_TIER2 = 2f;
-    const float CHARGE_TIER3 = 3f;
+    const float CHARGE_TIER1 = .2f;
+    const float CHARGE_TIER2 = 1f;
+    const float CHARGE_TIER3 = 2f;
 
     LayerMask layermask;                                        //Prevent raycast from hitting unimportant layers
     bool checkChargeRelease = false;
