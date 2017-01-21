@@ -9,6 +9,7 @@ public class Enemy : MonoBehaviour {
     public bool isFacingRight;
     public float speed = 1f;
     public float attackRadius = 10f;
+    public int damage;
     public int health;
     public int ammo = 10;
     public int projectileWaveType; // 0 - 2...    || 0 = r || 1 = g  || 2 = b
@@ -69,6 +70,7 @@ public class Enemy : MonoBehaviour {
     public void TakeDamage(int dmg) {
         health -= dmg;
     }
+    
     protected void Approach() { }
     protected void Retreat() { }
     protected void FlipDirection()

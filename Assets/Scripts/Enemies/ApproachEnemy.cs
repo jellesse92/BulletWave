@@ -5,6 +5,7 @@ using UnityEngine;
 public class ApproachEnemy : Enemy {
 
     public int bulletType;
+    public int damage = 10;
     // Use this for initialization
     void Start()
     {
@@ -51,7 +52,7 @@ public class ApproachEnemy : Enemy {
             coolDownTime = Random.Range(.5f, 1.5f);
             var heading = target.transform.position - transform.position;
             var direction = heading / heading.magnitude;
-            BulletList.GetComponent<BulletFire>().Fire(direction, transform.position, Random.Range(2f, 5f), projectileWaveType, bulletType);
+            BulletList.GetComponent<BulletFire>().Fire(direction, transform.position, Random.Range(2f, 5f), projectileWaveType, bulletType, damage);
             isCoolingDown = true;
             Invoke("CoolDownShot", coolDownTime);
         }
