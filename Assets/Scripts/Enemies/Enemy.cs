@@ -4,18 +4,19 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour {
 
+    private const int waveTypes = [0, 1, 2];
 
     public bool isFacingRight;
     public float speed = 1f;
+    public float attackRadius = 10f;
     public int health;
+    public int projectileWaveType;
 
     protected Animator anim;
     protected bool isDead;
     protected bool inAttackRange;
 
-
     protected float coolDownTime;
-    protected int projectileWaveType;
     protected GameObject target;
     protected GameObject[] potentialTargets;
 
@@ -28,9 +29,25 @@ public class Enemy : MonoBehaviour {
         isFacingRight = false;
         InvokeRepeating("FlipDirection", 3f, 5f);
     }
+
+    protected GameObject FindTarget()
+    {
+        GameObject closestObject = potentialTargets[0];
+        float distance = Vector2.Distance(transform.position, potentialTargets[0].transform.position);
+        foreach (GameObject player in potentialTargets)
+        {
+            closestObject = Vector2.Distance(transform.position, closestObject.transform.position) > Vector2.Distance(transform.position, player.transform.position) ? player : closestObject;
+        }
+        return closestObject;
+    }
+
     void FixedUpdate()
     {
-        IdleMovement();
+        if (!inAttackRange)
+        {
+            IdleMovement();
+        }
+
     }
 
     protected void IdleMovement()
@@ -42,4 +59,5 @@ public class Enemy : MonoBehaviour {
     {
         isFacingRight = !isFacingRight;
     }
+    
 }
