@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class ApproachEnemy : Enemy {
 
-    public int bulletType;
     // Use this for initialization
     void Start()
     {
