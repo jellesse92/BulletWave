@@ -245,7 +245,7 @@ CircleCollider2D:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 56417353}
-  m_Enabled: 0
+  m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 6200000, guid: ce147b51242e27d449ff71cf4033b70a, type: 2}
   m_IsTrigger: 1
@@ -5891,6 +5891,10 @@ Prefab:
       propertyPath: m_Name
       value: TEMP_REACTIVE_ENEMY (12)
       objectReference: {fileID: 0}
+    - target: {fileID: 1669151500612764, guid: 4ccfd16deef1c7348ab3959ac7fe56a9, type: 2}
+      propertyPath: m_TagString
+      value: Bullet
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 4ccfd16deef1c7348ab3959ac7fe56a9, type: 2}
   m_IsPrefabParent: 0
@@ -6014,6 +6018,7 @@ GameObject:
   - component: {fileID: 1774910405}
   - component: {fileID: 1774910406}
   - component: {fileID: 1774910407}
+  - component: {fileID: 1774910408}
   m_Layer: 8
   m_Name: Player
   m_TagString: Player
@@ -6082,6 +6087,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bulletDeflector: {fileID: 56417353}
+  currentColor: 0
 --- !u!50 &1774910405
 Rigidbody2D:
   serializedVersion: 4
@@ -6128,6 +6134,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 50
+--- !u!114 &1774910408
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1774910401}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5343a88f7f1320e4e90153f0991e8fe9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1780871524
 Prefab:
   m_ObjectHideFlags: 0

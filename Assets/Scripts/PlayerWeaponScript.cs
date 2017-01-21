@@ -50,6 +50,8 @@ public class PlayerWeaponScript : MonoBehaviour {
 
         currentColor--;
         FrequencyShift();
+        CancelInvoke("ShiftEndCD");
+        shiftOnCD = false;
     }
 
     // Update is called once per frame
@@ -75,7 +77,7 @@ public class PlayerWeaponScript : MonoBehaviour {
         }
 
        
-
+        /*
         if (Input.GetKeyDown(KeyCode.Z))
         {
             ExecuteAttack1();
@@ -90,8 +92,9 @@ public class PlayerWeaponScript : MonoBehaviour {
         {
             ExecuteAttack3();
         }
+        */
 
-        if (Input.GetKeyDown(KeyCode.V))
+        if (Input.GetKeyDown(KeyCode.LeftShift))
         {
             FrequencyShift();
         }
@@ -214,6 +217,8 @@ public class PlayerWeaponScript : MonoBehaviour {
             ActivateReflector();
     }
 
+    //FREQUENCY SHIFT FUNCTIONS
+
     void FrequencyShift()
     {
         if (shiftOnCD)
@@ -243,4 +248,7 @@ public class PlayerWeaponScript : MonoBehaviour {
     {
         shiftOnCD = false;
     }
+
+
+    //END FREQUENCY SHIFTS
 }

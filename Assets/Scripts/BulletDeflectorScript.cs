@@ -34,6 +34,7 @@ public class BulletDeflectorScript : MonoBehaviour {
         if (collision.tag == "Bullet")
             if (bulletsInRange.Contains(collision.gameObject))
                 bulletsInRange.Remove(collision.gameObject);
+        Debug.Log(collision.tag);
     }
 
     public void RemoveBulletFromHash(GameObject bullet)
@@ -63,7 +64,7 @@ public class BulletDeflectorScript : MonoBehaviour {
 
     void ApplyDeflection(GameObject bullet)
     {
-        Debug.Log("DEFLECT!");
+        Debug.Log("DEFLECT! THIS: " + bullet.name);
     }
 
 }
