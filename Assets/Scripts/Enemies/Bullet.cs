@@ -4,20 +4,22 @@ using UnityEngine;
 
 public class Bullet : MonoBehaviour {
 
+    public GameObject bullet;
     public float speed;
-    public float direction;
+    public Vector2 direction;
     public float damage;
     public int type; // 0 = fireball, 1 = bullet
     public int color; // 0 = r, 1 = g, 2 = b
 
-
 	// Use this for initialization
 	void Start () {
-		
+        direction.x = 1;
+        direction.y = 1;
 	}
 	
 	// Update is called once per frame
-	void FixedUpdate () {
-		//move toward player dependant on bullet type
+	void FixedUpdate ()
+    {
+        bullet.transform.Translate(direction * Time.deltaTime * speed);
 	}
 }
