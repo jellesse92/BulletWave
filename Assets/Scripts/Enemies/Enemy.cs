@@ -4,13 +4,13 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour {
 
-    private const int waveTypes = [0, 1, 2];
+
 
     public bool isFacingRight;
     public float speed = 1f;
     public float attackRadius = 10f;
     public int health;
-    public int projectileWaveType;
+    public int projectileWaveType; // 0 - 2...    || 0 = r || 1 = g  || 2 = b
 
     protected Animator anim;
     protected bool isDead;
@@ -23,10 +23,12 @@ public class Enemy : MonoBehaviour {
     void Start()
     {
         potentialTargets = GameObject.FindGameObjectsWithTag("Player");
+        inAttackRange = false;
     }
     void Awake()
     {
         isFacingRight = false;
+        inAttackRange = false;
         InvokeRepeating("FlipDirection", 3f, 5f);
     }
 
