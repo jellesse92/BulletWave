@@ -4,11 +4,14 @@ using UnityEngine;
 
 public class PlayerWeaponScript : MonoBehaviour {
 
+    public GameObject bulletDeflector;
+
+    const float REFLECTOR_DURATION = 5f;
     
 
 	// Use this for initialization
 	void Start () {
-        Invoke("AttackTier1", 1f);
+        Invoke("ActivateReflector", 1f);
 	}
 	
 	// Update is called once per frame
@@ -16,9 +19,14 @@ public class PlayerWeaponScript : MonoBehaviour {
 		
 	}
 
-    void AttackTier1()
+    void ActivateReflector()
     {
-        Debug.Log("ATtack tier 1");
+        Invoke("DeactivateReflector", REFLECTOR_DURATION);
+
+    }
+
+    void DeactivateReflector()
+    {
 
     }
 }
