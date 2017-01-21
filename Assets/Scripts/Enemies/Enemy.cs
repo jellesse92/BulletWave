@@ -12,7 +12,7 @@ public class Enemy : MonoBehaviour {
     public int health;
     public int ammo = 10;
     public int projectileWaveType; // 0 - 2...    || 0 = r || 1 = g  || 2 = b
-    public GameObject[] Bullets;
+    public GameObject BulletList;
 
     protected Animator anim;
     protected bool isDead;
@@ -22,19 +22,14 @@ public class Enemy : MonoBehaviour {
     protected float coolDownTime;
     protected GameObject target;
     protected GameObject[] potentialTargets;
-    protected GameObject[] bullets;
 
     void Start()
     {
-        potentialTargets = GameObject.FindGameObjectsWithTag("Player");
-        inAttackRange = false;
+         inAttackRange = false;
     }
     void Awake()
     {
-        for (int i = 0; i < ammo; i++)
-        {
-            //bullets[i] = 
-        }
+
         isFacingRight = false;
         inAttackRange = false;
         InvokeRepeating("FlipDirection", 3f, 5f);
@@ -42,6 +37,8 @@ public class Enemy : MonoBehaviour {
 
     protected GameObject FindTarget()
     {
+        potentialTargets = GameObject.FindGameObjectsWithTag("Player");
+        print(potentialTargets);
         GameObject closestObject = potentialTargets[0];
         float distance = Vector2.Distance(transform.position, potentialTargets[0].transform.position);
         foreach (GameObject player in potentialTargets)
@@ -65,15 +62,11 @@ public class Enemy : MonoBehaviour {
         gameObject.transform.Translate(Time.deltaTime * (isFacingRight ? 1 : -1) * speed , 0, 0);
     }
 
-    protected void Shoot() {
-        var heading = target.transform.position - transform.position;
-        var direction = heading / heading.magnitude;
-
-
+    protected void Shoot() {      
 
     }
 
-    protected void TakeDamage(int dmg) {
+    public void TakeDamage(int dmg) {
         health -= dmg;
     }
     protected void Approach() { }
@@ -83,4 +76,25 @@ public class Enemy : MonoBehaviour {
         isFacingRight = !isFacingRight;
     }
     
+    protected void CheckForDeath()
+    {
+        //Death Animation?
+        if (health <= 0)
+        {
+            isDead = true;
+            gameObject.SetActive(false);
+        }
+    }
+
+    void OnTriggerEnter2d(Collider2D col)
+    {
+        if (col.tag == "Bullet")
+        {
+            var b = col.GetComponent<Bullet>();
+            if (b.deflected)
+            {
+                TakeDamage(b.damage);
+            }
+        }
+    }
 }

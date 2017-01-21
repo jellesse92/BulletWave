@@ -8,7 +8,7 @@ public class Bullet : MonoBehaviour
     public float speed;
     public Vector2 direction;
     public bool deflected;
-    public float damage;
+    public int damage;
     public int type = 1; // 0 = fireball, 1 = bullet
     public int color; // 0 = r, 1 = g, 2 = b
 
@@ -31,8 +31,17 @@ public class Bullet : MonoBehaviour
         {
             transform.Translate(direction * Time.deltaTime * speed);
         }
+
+        if (!gameObject.GetComponent<SpriteRenderer>().isVisible)
+        {
+            Invoke("Deactivate", 2f);
+        }
     }
 
+    public void Deactivate()
+    {
+        gameObject.SetActive(false);
+    }
     public void Deflect()
     {
         direction = direction * -1;
