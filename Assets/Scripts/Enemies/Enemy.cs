@@ -10,6 +10,7 @@ public class Enemy : MonoBehaviour {
     public float speed = 1f;
     public float attackRadius = 10f;
     public int health;
+    public int ammo = 10;
     public int projectileWaveType; // 0 - 2...    || 0 = r || 1 = g  || 2 = b
     public GameObject[] Bullets;
 
@@ -21,6 +22,7 @@ public class Enemy : MonoBehaviour {
     protected float coolDownTime;
     protected GameObject target;
     protected GameObject[] potentialTargets;
+    protected GameObject[] bullets;
 
     void Start()
     {
@@ -29,6 +31,10 @@ public class Enemy : MonoBehaviour {
     }
     void Awake()
     {
+        for (int i = 0; i < ammo; i++)
+        {
+            //bullets[i] = 
+        }
         isFacingRight = false;
         inAttackRange = false;
         InvokeRepeating("FlipDirection", 3f, 5f);
@@ -63,7 +69,6 @@ public class Enemy : MonoBehaviour {
         var heading = target.transform.position - transform.position;
         var direction = heading / heading.magnitude;
 
-        GameObject
 
 
     }
