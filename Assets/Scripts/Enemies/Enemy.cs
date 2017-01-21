@@ -15,9 +15,14 @@ public class Enemy : MonoBehaviour {
 
 
     protected float coolDownTime;
-
     protected int projectileWaveType;
+    protected GameObject target;
+    protected GameObject[] potentialTargets;
 
+    void Start()
+    {
+        potentialTargets = GameObject.FindGameObjectsWithTag("Player");
+    }
     void Awake()
     {
         isFacingRight = false;
