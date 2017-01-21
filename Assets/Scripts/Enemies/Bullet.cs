@@ -25,7 +25,8 @@ public class Bullet : MonoBehaviour
     {
         if (type == 0)
         {
-            transform.Translate(direction * Time.deltaTime * speed);
+            transform.Translate(new Vector2 ((direction.x * Time.deltaTime * speed * Mathf.Sin(Time.time)), (direction.y * Time.deltaTime * speed * Mathf.Cos(Time.time))));
+
         }
         if (type == 1)
         {

@@ -244,6 +244,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bulletDeflector: {fileID: 0}
+  currentColor: 0
 --- !u!212 &607835822
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -402,6 +403,21 @@ Prefab:
     - target: {fileID: 1196672362626360, guid: 18df579fef9b17f4199aa64c25497654, type: 2}
       propertyPath: m_Name
       value: Bullet
+      objectReference: {fileID: 0}
+    - target: {fileID: 114203403384745256, guid: 18df579fef9b17f4199aa64c25497654,
+        type: 2}
+      propertyPath: amplitude
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114203403384745256, guid: 18df579fef9b17f4199aa64c25497654,
+        type: 2}
+      propertyPath: sinespeed
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114203403384745256, guid: 18df579fef9b17f4199aa64c25497654,
+        type: 2}
+      propertyPath: omega
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 18df579fef9b17f4199aa64c25497654, type: 2}
