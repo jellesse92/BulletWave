@@ -41,7 +41,6 @@ public class Enemy : MonoBehaviour {
     protected GameObject FindTarget()
     {
         potentialTargets = GameObject.FindGameObjectsWithTag("Player");
-        print(potentialTargets);
         GameObject closestObject = potentialTargets[0];
         float distance = Vector2.Distance(transform.position, potentialTargets[0].transform.position);
         foreach (GameObject player in potentialTargets)
