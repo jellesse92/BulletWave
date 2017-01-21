@@ -6,6 +6,10 @@ public class PlayerWeaponScript : MonoBehaviour {
 
     public GameObject bulletDeflector;
 
+    const int MAX_COLOR_RANGE = 3;                              //Maximum amounts of colors to shift through
+    const float FREQ_SHIFT_CD = 2.0f;                           //Time shifting is on cooldown
+
+    //Reflector constants
     const float REFLECTOR_DURATION = 2f;                        //How long reflector stays active
     const float REFLECTOR_CD = 2.5f;                            //Cooldown between using reflector
 
@@ -36,10 +40,16 @@ public class PlayerWeaponScript : MonoBehaviour {
     float timeCharged = 0f;
 
     bool reflectorOnCD = false;
+    bool shiftOnCD = false;
+
+    public int currentColor = 0;
 
     // Use this for initialization
     void Start() {
         layermask = (LayerMask.GetMask("Default", "Enemy"));
+
+        currentColor--;
+        FrequencyShift();
     }
 
     // Update is called once per frame
@@ -68,7 +78,6 @@ public class PlayerWeaponScript : MonoBehaviour {
 
         if (Input.GetKeyDown(KeyCode.Z))
         {
-            //ActivateReflector();
             ExecuteAttack1();
 
         }
@@ -82,6 +91,11 @@ public class PlayerWeaponScript : MonoBehaviour {
             ExecuteAttack3();
         }
 
+        if (Input.GetKeyDown(KeyCode.V))
+        {
+            FrequencyShift();
+        }
+
 
     }
 
@@ -93,14 +107,14 @@ public class PlayerWeaponScript : MonoBehaviour {
             return;
 
         reflectorOnCD = true;
-        bulletDeflector.GetComponent<Collider2D>().enabled = true;
+        bulletDeflector.GetComponent<BulletDeflectorScript>().ActivateDeflector();
         Invoke("DeactivateReflector", REFLECTOR_DURATION);
         Invoke("ReflectorEndCD", REFLECTOR_CD);
     }
 
     void DeactivateReflector()
     {
-        bulletDeflector.GetComponent<Collider2D>().enabled = false;
+        bulletDeflector.GetComponent<BulletDeflectorScript>().DeactivateDeflector();
     }
 
     void ReflectorEndCD()
@@ -179,13 +193,13 @@ public class PlayerWeaponScript : MonoBehaviour {
     void TEMPORARY_CHARGE_STATUS()
     {
         if (timeCharged > CHARGE_TIER3)
-            GetComponent<SpriteRenderer>().color = Color.blue;
+            Debug.Log("MAX CHARGE");
         else if (timeCharged > CHARGE_TIER2)
-            GetComponent<SpriteRenderer>().color = Color.green;
+            Debug.Log("TIER 2 CHARGE");
         else if (timeCharged > CHARGE_TIER1)
-            GetComponent<SpriteRenderer>().color = Color.red;
+            Debug.Log("TIER 1 CHARGE");
         else
-            GetComponent<SpriteRenderer>().color = Color.white;
+            Debug.Log("DEFLECTOR");
     }
 
     void ExecuteAttack()
@@ -198,5 +212,35 @@ public class PlayerWeaponScript : MonoBehaviour {
             ExecuteAttack1();
         else
             ActivateReflector();
+    }
+
+    void FrequencyShift()
+    {
+        if (shiftOnCD)
+            return;
+
+        currentColor++;
+        if (currentColor >= MAX_COLOR_RANGE)
+            currentColor = 0;
+
+        switch (currentColor)
+        {
+            case 0: ApplyShift(0,Color.red); break;
+            case 1: ApplyShift(1,Color.blue); break;
+            case 2: ApplyShift(2,Color.green); break;
+        }
+    }
+
+    void ApplyShift(int n,Color c)
+    {
+        GetComponent<SpriteRenderer>().color = c;
+        bulletDeflector.GetComponent<BulletDeflectorScript>().SetDeflectColor(n);
+        shiftOnCD = true;
+        Invoke("ShiftEndCD", FREQ_SHIFT_CD);
+    }
+
+    void ShiftEndCD()
+    {
+        shiftOnCD = false;
     }
 }
