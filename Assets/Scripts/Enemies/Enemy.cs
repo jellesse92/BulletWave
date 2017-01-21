@@ -9,6 +9,7 @@ public class Enemy : MonoBehaviour {
     public bool isFacingRight;
     public float speed = 1f;
     public float attackRadius = 10f;
+    public float movementCoolDownTime;
     public int damage;
     public int health;
     public int ammo = 10;
@@ -18,6 +19,7 @@ public class Enemy : MonoBehaviour {
     protected Animator anim;
     protected bool isDead;
     protected bool inAttackRange;
+    protected bool isMovementLock;
     protected bool isCoolingDown;
 
     protected float coolDownTime;

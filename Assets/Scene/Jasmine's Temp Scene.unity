@@ -285,6 +285,11 @@ Prefab:
       propertyPath: m_Name
       value: ApproachEnemy
       objectReference: {fileID: 0}
+    - target: {fileID: 114218025122019498, guid: 70efa1338783ed44f8293a3d82c3a8ac,
+        type: 2}
+      propertyPath: movementCoolDownTime
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 70efa1338783ed44f8293a3d82c3a8ac, type: 2}
   m_IsPrefabParent: 0
