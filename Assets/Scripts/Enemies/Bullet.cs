@@ -4,13 +4,20 @@ using UnityEngine;
 
 public class Bullet : MonoBehaviour {
 
+    public float speed;
+    public float direction;
+    public float damage;
+    public int type; // 0 = fireball, 1 = bullet
+    public int color; // 0 = r, 1 = g, 2 = b
+
+
 	// Use this for initialization
 	void Start () {
 		
 	}
 	
 	// Update is called once per frame
-	void Update () {
-		
+	void FixedUpdate () {
+		//move toward player dependant on bullet type
 	}
 }
