@@ -4,7 +4,7 @@
 PlayerSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 10
-  productGUID: cb08cd9af2818c847a74aed2b0e3354b
+  productGUID: 47d7d5d01aaa11940a061235e7f806ee
   AndroidProfiler: 0
   defaultScreenOrientation: 4
   targetDevice: 2
@@ -454,7 +454,7 @@ PlayerSettings:
   vrEditorSettings: {}
   cloudServicesEnabled:
     UNet: 1
-  cloudProjectId: e8850d7b-0a51-4e80-9f39-b3a2d35fb0a9
-  projectName: Bullet Wave Game
+  cloudProjectId: 78ba561e-bdec-4c42-a70e-d8a8adf9e850
+  projectName: Bullet Wave Game (1)
   organizationId: jasmine-4184710
   cloudEnabled: 0
