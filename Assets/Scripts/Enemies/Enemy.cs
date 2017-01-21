@@ -11,6 +11,7 @@ public class Enemy : MonoBehaviour {
     public float attackRadius = 10f;
     public int health;
     public int projectileWaveType; // 0 - 2...    || 0 = r || 1 = g  || 2 = b
+    public GameObject[] Bullets;
 
     protected Animator anim;
     protected bool isDead;
@@ -20,7 +21,7 @@ public class Enemy : MonoBehaviour {
     protected float coolDownTime;
     protected GameObject target;
     protected GameObject[] potentialTargets;
-    protected GameObject[] Bullets;
+
     void Start()
     {
         potentialTargets = GameObject.FindGameObjectsWithTag("Player");
@@ -62,6 +63,7 @@ public class Enemy : MonoBehaviour {
         var heading = target.transform.position - transform.position;
         var direction = heading / heading.magnitude;
 
+        GameObject
 
 
     }
