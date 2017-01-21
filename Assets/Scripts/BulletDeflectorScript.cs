@@ -4,6 +4,14 @@ using UnityEngine;
 
 public class BulletDeflectorScript : MonoBehaviour {
 
+    int bulletType;
+    int bulletSpeed;
+    int bulletDamage;
+    int bulletColor;
+
+
+
+
 	// Use this for initialization
 	void Start () {
 		
