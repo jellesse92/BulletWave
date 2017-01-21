@@ -4,22 +4,21 @@ using UnityEngine;
 
 public class BulletDeflectorScript : MonoBehaviour {
 
-    private void Start()
-    {
-    } 
+    int bulletType;
+    int bulletSpeed;
+    int bulletDamage;
+    int bulletColor;
 
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
 
-    }
 
-    private void OnCollisionEnter2D(Collision2D collision)
-    {
 
-    }
-
-    public void EnableDeflection()
-    {
-
-    }
+	// Use this for initialization
+	void Start () {
+		
+	}
+	
+	// Update is called once per frame
+	void Update () {
+		
+	}
 }
