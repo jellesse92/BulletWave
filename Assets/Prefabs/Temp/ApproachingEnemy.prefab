@@ -114,6 +114,8 @@ MonoBehaviour:
   isFacingRight: 0
   speed: 1
   attackRadius: 10
+  movementCoolDownTime: 1
+  damage: 0
   health: 100
   ammo: 10
   projectileWaveType: 0

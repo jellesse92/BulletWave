@@ -9,6 +9,8 @@ public class Enemy : MonoBehaviour {
     public bool isFacingRight;
     public float speed = 1f;
     public float attackRadius = 10f;
+    public float movementCoolDownTime;
+    public int damage;
     public int health;
     public int ammo = 10;
     public int projectileWaveType; // 0 - 2...    || 0 = r || 1 = g  || 2 = b
@@ -17,6 +19,7 @@ public class Enemy : MonoBehaviour {
     protected Animator anim;
     protected bool isDead;
     protected bool inAttackRange;
+    protected bool isMovementLock;
     protected bool isCoolingDown;
 
     protected float coolDownTime;
@@ -38,7 +41,6 @@ public class Enemy : MonoBehaviour {
     protected GameObject FindTarget()
     {
         potentialTargets = GameObject.FindGameObjectsWithTag("Player");
-        print(potentialTargets);
         GameObject closestObject = potentialTargets[0];
         float distance = Vector2.Distance(transform.position, potentialTargets[0].transform.position);
         foreach (GameObject player in potentialTargets)
@@ -69,6 +71,7 @@ public class Enemy : MonoBehaviour {
     public void TakeDamage(int dmg) {
         health -= dmg;
     }
+    
     protected void Approach() { }
     protected void Retreat() { }
     protected void FlipDirection()

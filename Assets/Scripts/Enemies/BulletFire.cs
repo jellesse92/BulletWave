@@ -24,7 +24,7 @@ public class BulletFire : MonoBehaviour {
 		
 	}
 
-    public void Fire(Vector2 dir, Vector3 pos, float speed, int color, int type)
+    public void Fire(Vector2 dir, Vector3 pos, float speed, int color, int type, int dmg)
     {
         for (int i = 0; i < ammo; i++)
         {
@@ -34,6 +34,7 @@ public class BulletFire : MonoBehaviour {
                 b.direction = dir;
                 b.color = color;
                 b.type = type;
+                b.damage = dmg;
                 b.speed = speed;
                 b.transform.position = pos;
                 bulletList[i].SetActive(true);

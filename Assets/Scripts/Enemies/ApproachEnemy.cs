@@ -14,6 +14,7 @@ public class ApproachEnemy : Enemy {
     void Awake()
     {
         bulletType = 0;
+        damage = 10;
         inAttackRange = true;
         target = FindTarget();
     }
@@ -23,16 +24,13 @@ public class ApproachEnemy : Enemy {
 
         if (distance <= attackRadius)
         {
-            print("shoot?");
             Shoot();
             if (distance < attackRadius)
             {
-                print("Retreat?");
                 Retreat();
             }
         }
         else {
-            print("Approach");
             Approach();
         }
 
@@ -40,9 +38,12 @@ public class ApproachEnemy : Enemy {
 	}
     protected new void Retreat()
     {
-        var heading = target.transform.position - transform.position;
-        var direction = heading / heading.magnitude;
-        transform.Translate(-direction * Time.deltaTime * speed);
+        if (!isMovementLock)
+        {
+            var heading = target.transform.position - transform.position;
+            var direction = heading / heading.magnitude;
+            transform.Translate(-direction * Time.deltaTime * speed);
+        }
     }
     protected new void Shoot()
     {
@@ -51,21 +52,30 @@ public class ApproachEnemy : Enemy {
             coolDownTime = Random.Range(.5f, 1.5f);
             var heading = target.transform.position - transform.position;
             var direction = heading / heading.magnitude;
-            BulletList.GetComponent<BulletFire>().Fire(direction, transform.position, Random.Range(2f, 5f), projectileWaveType, bulletType);
+            BulletList.GetComponent<BulletFire>().Fire(direction, transform.position, Random.Range(2f, 5f), projectileWaveType, bulletType, damage);
             isCoolingDown = true;
+            isMovementLock = true;
             Invoke("CoolDownShot", coolDownTime);
+            Invoke("CoolDownWalk", movementCoolDownTime);
         }
     }
 
     protected new void Approach()
     {
-        var heading = target.transform.position - transform.position;
-        var direction = heading / heading.magnitude;
-        transform.Translate(direction * Time.deltaTime * speed);
+        if (!isMovementLock)
+        {
+            var heading = target.transform.position - transform.position;
+            var direction = heading / heading.magnitude;
+            transform.Translate(direction * Time.deltaTime * speed);
+        }
     }
     private void CoolDownShot()
     {
         isCoolingDown = false;
+    }
+    private void CoolDownWalk()
+    {
+        isMovementLock = false;
     }
 
 
