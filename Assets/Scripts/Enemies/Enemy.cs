@@ -15,11 +15,12 @@ public class Enemy : MonoBehaviour {
     protected Animator anim;
     protected bool isDead;
     protected bool inAttackRange;
+    protected bool isCoolingDown;
 
     protected float coolDownTime;
     protected GameObject target;
     protected GameObject[] potentialTargets;
-
+    protected GameObject[] Bullets;
     void Start()
     {
         potentialTargets = GameObject.FindGameObjectsWithTag("Player");
@@ -57,6 +58,19 @@ public class Enemy : MonoBehaviour {
         gameObject.transform.Translate(Time.deltaTime * (isFacingRight ? 1 : -1) * speed , 0, 0);
     }
 
+    protected void Shoot() {
+        var heading = target.transform.position - transform.position;
+        var direction = heading / heading.magnitude;
+
+
+
+    }
+
+    protected void TakeDamage(int dmg) {
+        health -= dmg;
+    }
+    protected void Approach() { }
+    protected void Retreat() { }
     protected void FlipDirection()
     {
         isFacingRight = !isFacingRight;
