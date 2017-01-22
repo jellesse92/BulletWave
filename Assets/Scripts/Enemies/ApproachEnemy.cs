@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class ApproachEnemy : Enemy {
 
-    public int bulletType;
     // Use this for initialization
     void Start()
     {
@@ -13,7 +12,6 @@ public class ApproachEnemy : Enemy {
 
     void Awake()
     {
-        //movementCoolDownTime = 1f;
         bulletType = 0;
         damage = 10;
         inAttackRange = true;

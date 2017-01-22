@@ -1,0 +1,440 @@
+fileFormatVersion: 2
+guid: 0c583f33aa1e74e259ccf8de20f3c093
+timeCreated: 1485041983
+licenseType: Free
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: Robo Sprites_0
+    21300002: Robo Sprites_1
+    21300004: Robo Sprites_2
+    21300006: Robo Sprites_3
+    21300008: Robo Sprites_4
+    21300010: Robo Sprites_5
+    21300012: Robo Sprites_6
+    21300014: Robo Sprites_7
+    21300016: Robo Sprites_8
+    21300018: Robo Sprites_9
+    21300020: Robo Sprites_10
+    21300022: Robo Sprites_11
+    21300024: Robo Sprites_12
+    21300026: Robo Sprites_13
+    21300028: Robo Sprites_14
+    21300030: Robo Sprites_15
+    21300032: Robo Sprites_16
+    21300034: Robo Sprites_17
+    21300036: Robo Sprites_18
+    21300038: Robo Sprites_19
+    21300040: Robo Sprites_20
+    21300042: Robo Sprites_21
+    21300044: Robo Sprites_22
+    21300046: Robo Sprites_23
+    21300048: Robo Sprites_24
+    21300050: Robo Sprites_25
+  serializedVersion: 4
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    filterMode: 0
+    aniso: -1
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 9
+  spritePivot: {x: 0.13111936, y: 0.57019377}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 100
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  platformSettings:
+  - buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+  - buildTarget: Standalone
+    maxTextureSize: 2048
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Robo Sprites_0
+      rect:
+        serializedVersion: 2
+        x: 67
+        y: 667
+        width: 25
+        height: 13
+      alignment: 9
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Robo Sprites_1
+      rect:
+        serializedVersion: 2
+        x: 161
+        y: 666
+        width: 25
+        height: 12
+      alignment: 9
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Robo Sprites_2
+      rect:
+        serializedVersion: 2
+        x: 248
+        y: 667
+        width: 16
+        height: 13
+      alignment: 9
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Robo Sprites_3
+      rect:
+        serializedVersion: 2
+        x: 334
+        y: 672
+        width: 25
+        height: 12
+      alignment: 9
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Robo Sprites_4
+      rect:
+        serializedVersion: 2
+        x: 427
+        y: 668
+        width: 25
+        height: 12
+      alignment: 9
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Robo Sprites_5
+      rect:
+        serializedVersion: 2
+        x: 52
+        y: 573
+        width: 54
+        height: 54
+      alignment: 9
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Robo Sprites_6
+      rect:
+        serializedVersion: 2
+        x: 108
+        y: 600
+        width: 13
+        height: 28
+      alignment: 9
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Robo Sprites_7
+      rect:
+        serializedVersion: 2
+        x: 137
+        y: 570
+        width: 59
+        height: 55
+      alignment: 9
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Robo Sprites_8
+      rect:
+        serializedVersion: 2
+        x: 196
+        y: 620
+        width: 21
+        height: 32
+      alignment: 9
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Robo Sprites_9
+      rect:
+        serializedVersion: 2
+        x: 235
+        y: 566
+        width: 41
+        height: 60
+      alignment: 9
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Robo Sprites_10
+      rect:
+        serializedVersion: 2
+        x: 281
+        y: 626
+        width: 22
+        height: 21
+      alignment: 9
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Robo Sprites_11
+      rect:
+        serializedVersion: 2
+        x: 312
+        y: 574
+        width: 57
+        height: 56
+      alignment: 9
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Robo Sprites_12
+      rect:
+        serializedVersion: 2
+        x: 409
+        y: 568
+        width: 61
+        height: 60
+      alignment: 9
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Robo Sprites_13
+      rect:
+        serializedVersion: 2
+        x: 60
+        y: 563
+        width: 18
+        height: 8
+      alignment: 9
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Robo Sprites_14
+      rect:
+        serializedVersion: 2
+        x: 89
+        y: 548
+        width: 26
+        height: 23
+      alignment: 9
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Robo Sprites_15
+      rect:
+        serializedVersion: 2
+        x: 151
+        y: 556
+        width: 20
+        height: 10
+      alignment: 9
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Robo Sprites_16
+      rect:
+        serializedVersion: 2
+        x: 176
+        y: 557
+        width: 21
+        height: 10
+      alignment: 9
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Robo Sprites_17
+      rect:
+        serializedVersion: 2
+        x: 249
+        y: 552
+        width: 19
+        height: 7
+      alignment: 9
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Robo Sprites_18
+      rect:
+        serializedVersion: 2
+        x: 324
+        y: 557
+        width: 18
+        height: 15
+      alignment: 9
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Robo Sprites_19
+      rect:
+        serializedVersion: 2
+        x: 351
+        y: 557
+        width: 17
+        height: 13
+      alignment: 9
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Robo Sprites_20
+      rect:
+        serializedVersion: 2
+        x: 425
+        y: 556
+        width: 30
+        height: 8
+      alignment: 9
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Robo Sprites_21
+      rect:
+        serializedVersion: 2
+        x: 58
+        y: 627
+        width: 45
+        height: 37
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Robo Sprites_22
+      rect:
+        serializedVersion: 2
+        x: 148
+        y: 625
+        width: 46
+        height: 37
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Robo Sprites_23
+      rect:
+        serializedVersion: 2
+        x: 235
+        y: 626
+        width: 37
+        height: 36
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Robo Sprites_24
+      rect:
+        serializedVersion: 2
+        x: 322
+        y: 630
+        width: 45
+        height: 37
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Robo Sprites_25
+      rect:
+        serializedVersion: 2
+        x: 416
+        y: 628
+        width: 45
+        height: 35
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    outline: []
+  spritePackingTag: 
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

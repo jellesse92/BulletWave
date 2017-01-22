@@ -14,6 +14,7 @@ public class Enemy : MonoBehaviour {
     public int health;
     public int ammo = 10;
     public int projectileWaveType; // 0 - 2...    || 0 = r || 1 = g  || 2 = b
+    public int bulletType;
     public GameObject BulletList;
 
     protected Animator anim;

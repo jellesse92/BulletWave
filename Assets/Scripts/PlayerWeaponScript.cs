@@ -5,6 +5,7 @@ using UnityEngine;
 public class PlayerWeaponScript : MonoBehaviour {
 
     public GameObject bulletDeflector;
+    public GameObject[] bulletTypes;
 
     const int MAX_COLOR_RANGE = 3;                              //Maximum amounts of colors to shift through
     const float FREQ_SHIFT_CD = 2.0f;                           //Time shifting is on cooldown
@@ -35,6 +36,11 @@ public class PlayerWeaponScript : MonoBehaviour {
     const float CHARGE_TIER2 = 1f;
     const float CHARGE_TIER3 = 2f;
 
+    public AudioClip tier1WeaponSound;
+    public AudioClip tier2WeaponSound;
+    public AudioClip maxWeaponSound;
+    AudioSource weaponAudio;
+
     LayerMask layermask;                                        //Prevent raycast from hitting unimportant layers
     bool checkChargeRelease = false;
     float timeCharged = 0f;
@@ -46,6 +52,8 @@ public class PlayerWeaponScript : MonoBehaviour {
 
     // Use this for initialization
     void Start() {
+        weaponAudio = GetComponent<AudioSource>();
+
         layermask = (LayerMask.GetMask("Default", "Enemy"));
 
         currentColor--;
@@ -129,68 +137,22 @@ public class PlayerWeaponScript : MonoBehaviour {
 
     void ExecuteAttack1()
     {
-        RaycastHit2D[][] rays = new RaycastHit2D[9][];
-        rays[0] = Physics2D.RaycastAll(transform.position, transform.up, TIER1_ATTACK_LEN, layermask);
-        rays[1] = Physics2D.RaycastAll(transform.position, transform.up + new Vector3(.5f, 0f, 0f), TIER1_ATTACK_LEN + TIER1_OFFSET_2, layermask);
-        rays[2] = Physics2D.RaycastAll(transform.position, transform.up + new Vector3(-.5f, 0f, 0f), TIER1_ATTACK_LEN + TIER1_OFFSET_2, layermask);
-        rays[3] = Physics2D.RaycastAll(transform.position, transform.up + new Vector3(1f, 0f, 0f), TIER1_ATTACK_LEN + TIER1_OFFSET_FAR, layermask);
-        rays[4] = Physics2D.RaycastAll(transform.position, transform.up + new Vector3(-1f, 0f, 0f), TIER1_ATTACK_LEN + TIER1_OFFSET_FAR, layermask);
-        rays[5] = Physics2D.RaycastAll(transform.position, transform.up + new Vector3(.25f, 0f, 0f), TIER1_ATTACK_LEN + TIER1_OFFSET_1, layermask);
-        rays[6] = Physics2D.RaycastAll(transform.position, transform.up + new Vector3(-.25f, 0f, 0f), TIER1_ATTACK_LEN + TIER1_OFFSET_1, layermask);
-        rays[7] = Physics2D.RaycastAll(transform.position, transform.up + new Vector3(.75f, 0f, 0f), TIER1_ATTACK_LEN + TIER1_OFFSET_3, layermask);
-        rays[8] = Physics2D.RaycastAll(transform.position, transform.up + new Vector3(-.75f, 0f, 0f), TIER1_ATTACK_LEN + TIER1_OFFSET_3, layermask);
+        weaponAudio.PlayOneShot(tier1WeaponSound);
 
-        foreach (RaycastHit2D[] r in rays)
-        {
-            foreach (RaycastHit2D target in r)
-            {
-                if (target.collider.tag == "Enemy")
-                    target.transform.GetComponent<TEMP_EnemyReact>().ReceiveDamage(5);
-            }
-        }
+
     }
 
     void ExecuteAttack2()
     {
-        RaycastHit2D[][] rays = new RaycastHit2D[9][];
-        rays[0] = Physics2D.RaycastAll(transform.position, transform.up, TIER2_ATTACK_LEN, layermask);
-        rays[1] = Physics2D.RaycastAll(transform.position, transform.up + new Vector3(.25f, 0f, 0f), TIER2_ATTACK_LEN + TIER2_OFFSET_2, layermask);
-        rays[2] = Physics2D.RaycastAll(transform.position, transform.up + new Vector3(-.25f, 0f, 0f), TIER2_ATTACK_LEN + TIER2_OFFSET_2, layermask);
-        rays[3] = Physics2D.RaycastAll(transform.position, transform.up + new Vector3(.10f, 0f, 0f), TIER2_ATTACK_LEN + TIER2_OFFSET_1, layermask);
-        rays[4] = Physics2D.RaycastAll(transform.position, transform.up + new Vector3(-.10f, 0f, 0f), TIER2_ATTACK_LEN + TIER2_OFFSET_1, layermask);
-        rays[5] = Physics2D.RaycastAll(transform.position, transform.up + new Vector3(.40f, 0f, 0f), TIER2_ATTACK_LEN + TIER2_OFFSET_3, layermask);
-        rays[6] = Physics2D.RaycastAll(transform.position, transform.up + new Vector3(-.40f, 0f, 0f), TIER2_ATTACK_LEN + TIER2_OFFSET_3, layermask);
-        rays[7] = Physics2D.RaycastAll(transform.position, transform.up + new Vector3(.20f, 0f, 0f), TIER2_ATTACK_LEN + TIER2_OFFSET_FAR, layermask);
-        rays[8] = Physics2D.RaycastAll(transform.position, transform.up + new Vector3(-.20f, 0f, 0f), TIER2_ATTACK_LEN + TIER2_OFFSET_FAR, layermask);
+        weaponAudio.PlayOneShot(tier2WeaponSound);
 
-        foreach (RaycastHit2D[] r in rays)
-        {
-            foreach (RaycastHit2D target in r)
-            {
-                if (target.collider.tag == "Enemy")
-                    target.transform.GetComponent<TEMP_EnemyReact>().ReceiveDamage(10);
-            }
-        }
+
     }
 
     void ExecuteAttack3()
     {
-        RaycastHit2D[][] rays = new RaycastHit2D[5][];
+        weaponAudio.PlayOneShot(maxWeaponSound);
 
-        rays[0] = Physics2D.RaycastAll(transform.position, transform.up, TIER2_ATTACK_LEN, layermask);
-        rays[1] = Physics2D.RaycastAll(transform.position + new Vector3(1f, 0f, 0f), transform.up, TIER3_ATTACK_LEN, layermask);
-        rays[2] = Physics2D.RaycastAll(transform.position + new Vector3(-1f, 0f, 0f), transform.up, TIER3_ATTACK_LEN, layermask);
-        rays[3] = Physics2D.RaycastAll(transform.position + new Vector3(2.5f, 0f, 0f), transform.up, TIER3_ATTACK_LEN, layermask);
-        rays[4] = Physics2D.RaycastAll(transform.position + new Vector3(-2.5f, 0f, 0f), transform.up, TIER3_ATTACK_LEN, layermask);
-
-        foreach (RaycastHit2D[] r in rays)
-        {
-            foreach (RaycastHit2D target in r)
-            {
-                if (target.collider.tag == "Enemy")
-                    target.transform.GetComponent<TEMP_EnemyReact>().ReceiveDamage(15);
-            }
-        }
     }
 
     void TEMPORARY_CHARGE_STATUS()
