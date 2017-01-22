@@ -49,6 +49,19 @@ public class Spawner : MonoBehaviour {
                 ApproachEnemy b = aenemyList[i].GetComponentInChildren<ApproachEnemy>();
                 aenemyList[i].transform.position = transform.position;
                 b.attackRadius = Random.Range(7f, 13f);
+                b.projectileWaveType = (int)Random.Range(0.0f, 3f);
+                if (b.projectileWaveType == 0)
+                {
+                    b.GetComponent<SpriteRenderer>().material.SetColor("_Color", Color.red);
+                }
+                if (b.projectileWaveType == 1)
+                {
+                    b.GetComponent<SpriteRenderer>().material.SetColor("_Color", Color.green);
+                }
+                if (b.projectileWaveType == 2)
+                {
+                    b.GetComponent<SpriteRenderer>().material.SetColor("_Color", Color.blue);
+                }
                 aenemyList[i].SetActive(true);
 
                 break;
