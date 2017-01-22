@@ -107,7 +107,10 @@ public class Bullet : MonoBehaviour
                 foreach (Transform child in explosion.transform)
                 {
                     if (child.name == "Red")
+                    {
+                        child.position = col.transform.position;
                         child.GetComponent<ParticleSystem>().Play();
+                    }
                 }
             }
             if (blueParticle.activeSelf)
@@ -116,7 +119,10 @@ public class Bullet : MonoBehaviour
                 foreach (Transform child in explosion.transform)
                 {
                     if (child.name == "Blue")
+                    {
+                        child.position = col.transform.position;
                         child.GetComponent<ParticleSystem>().Play();
+                    }
                 }
             }
             if (greenParticle.activeSelf)
@@ -125,7 +131,10 @@ public class Bullet : MonoBehaviour
                 foreach (Transform child in explosion.transform)
                 {
                     if (child.name == "Green")
+                    {
+                        child.position = col.transform.position;
                         child.GetComponent<ParticleSystem>().Play();
+                    }
                 }
             }
             col.GetComponent<Player>().TakeDamage(damage, this.gameObject);
