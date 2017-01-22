@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class PlayerWeaponScript : MonoBehaviour {
 
+    public bool isFacingRight = false;
+
     public GameObject bulletDeflector;
     public Transform bulletList;
     public GameObject[] bulletTypes;
