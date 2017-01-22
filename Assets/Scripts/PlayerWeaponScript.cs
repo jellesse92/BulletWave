@@ -46,15 +46,18 @@ public class PlayerWeaponScript : MonoBehaviour {
     AudioSource weaponAudio;
 
     LayerMask layermask;                                        //Prevent raycast from hitting unimportant layers
-    bool checkChargeRelease = false;
+    bool checkChargeTime = false;
     float timeCharged = 0f;
 
     bool reflectorOnCD = false;
     bool shiftOnCD = false;
 
+    public PlayerInput input;
+
     private void Awake()
     {
         GenerateBullets();
+        
     }
 
     // Use this for initialization
@@ -69,79 +72,37 @@ public class PlayerWeaponScript : MonoBehaviour {
         shiftOnCD = false;
     }
 
+    private void Update()
+    {
+
+    } 
+
     // Update is called once per frame
-    void Update() {
+    void FixedUpdate() {
         TEMPORARY_CHARGE_STATUS();
 
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (input.GetKeyPress().rightTriggerPressed)
         {
-            checkChargeRelease = true;
+            checkChargeTime = true;
             timeCharged = 0f;
         }
 
-        if(checkChargeRelease)
+        if (checkChargeTime)
+            timeCharged += Time.deltaTime;      
+
+        if (input.GetKeyPress().rightTriggerReleased)
         {
-
-            timeCharged += Time.deltaTime;
-            if (Input.GetKeyUp(KeyCode.Space))
-            {
-                ExecuteAttack();
-                checkChargeRelease = false;
-                timeCharged = 0f;
-            }
-
-            if(Input.GetAxis("1_RightTrigger") < .5f)
-            {
-                ExecuteAttack();
-                checkChargeRelease = false;
-                timeCharged = 0f;
-            }
-        }
-
-        //Controller type
-
-        if(!checkChargeRelease && Input.GetAxis("1_RightTrigger") > .5f)
-        {
+            ExecuteAttack();
+            checkChargeTime = false;
             timeCharged = 0f;
-            checkChargeRelease = true;
         }
-
-        /*
-         * 
-              if(checkChargeRelease)
-        {
-
-            timeCharged += Time.deltaTime;
-            if (Input.GetKeyUp(KeyCode.Space))
-            {
-                ExecuteAttack();
-                checkChargeRelease = false;
-                timeCharged = 0f;
-            }
-            }
-        
-        if (Input.GetKeyDown(KeyCode.Z))
-        {
-            ExecuteAttack1();
-
-        }
-        if (Input.GetKeyDown(KeyCode.X))
-        {
-            ExecuteAttack2();
-        }
-
-        if (Input.GetKeyDown(KeyCode.C))
-        {
-            ExecuteAttack3();
-        }
-        */
 
         if (Input.GetKeyDown(KeyCode.LeftShift))
         {
             FrequencyShift();
         }
 
-
+        input.ResetKeyPress();
     }
 
     void GenerateBullets()

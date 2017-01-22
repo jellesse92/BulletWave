@@ -7,8 +7,8 @@ public class PlayerInput : MonoBehaviour {
     [System.Serializable]
     public class KeyConfig
     {
-        public string horizontalAxisName = "Horizontal_Key";
-        public string verticalAxisName = "Vertical_Key";
+        public string horizontalAxisName = "Horizontal";
+        public string verticalAxisName = "Vertical";
         public string rightTriggerName = "1_RightTrigger";
     }
 
@@ -30,13 +30,13 @@ public class PlayerInput : MonoBehaviour {
 
     // Use this for initialization
     void Start () {
-		
+
 	}
 	
 	// Update is called once per frame
 	void Update () {
-		
-	}
+        GetInput();
+    }
 
     void GetInput()
     {
@@ -46,14 +46,16 @@ public class PlayerInput : MonoBehaviour {
         keysPressed.horizontalAxisValue = x;
         keysPressed.verticalAxisValue = y;
 
-        if(!checkForRightTriggerRelease && Input.GetAxis(inputConfig.rightTriggerName) > .5f)
+        if(!checkForRightTriggerRelease && (joystickNum == -1 && Input.GetKeyDown(KeyCode.Space)) || (joystickNum > 0 && !checkForRightTriggerRelease && Input.GetAxis(inputConfig.rightTriggerName) > .5f))
         {
             keysPressed.rightTriggerPressed = true;
             checkForRightTriggerRelease = true;
         }
         else if (checkForRightTriggerRelease)
-            if(Input.GetAxis(inputConfig.rightTriggerName) < .5f)
+            if((joystickNum == -1 && Input.GetKeyUp(KeyCode.Space)) || (joystickNum > 0 && Input.GetAxis(inputConfig.rightTriggerName) < .5f))
             {
+                Debug.Log("testing");
+                Debug.Log(joystickNum == -1 && Input.GetKeyUp(KeyCode.Space));
                 checkForRightTriggerRelease = false;
                 keysPressed.rightTriggerReleased = true;
             }
