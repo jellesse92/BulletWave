@@ -1,4 +1,4 @@
-Shader "Effects/GlowAdditiveSimple" {
+Shader "Particles/GlowAdditiveSimple" {
 	Properties {
 	_TintColor ("Tint Color", Color) = (0.5,0.5,0.5,0.5)
 	_CoreColor ("Core Color", Color) = (0.5,0.5,0.5,0.5)

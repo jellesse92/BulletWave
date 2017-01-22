@@ -55,5 +55,15 @@ public class PlayerJoin : MonoBehaviour {
         return controlAssignment[player];
     }
 
+    public void StopUpdate()
+    {
+        this.enabled = false;
+    }
+
+    public void StartUpdate()
+    {
+        this.enabled = true;
+    }
+
     
 }
