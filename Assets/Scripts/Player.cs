@@ -9,6 +9,8 @@ public class Player : MonoBehaviour {
     const float SHAKE_MAGNITUDE = .1f;
     const float SHAKE_DURATION = .5f;
 
+    const float REVIVE_TIME = 1f;
+
     const float INVULN_DURATION = 1.5f;
 
     const int BASE_LIVES = 3;
@@ -24,12 +26,14 @@ public class Player : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 
-        Invoke("Test", 2f);
+        Invoke("Test", 4f);
 	}
 
     void Test()
     {
-        TakeDamage(10);
+        Debug.Log("running test");
+        Death();
+        //TakeDamage(10);
     }
 	
 	// Update is called once per frame
@@ -62,17 +66,30 @@ public class Player : MonoBehaviour {
             playerSpecialEffects.StartShake(SHAKE_MAGNITUDE, SHAKE_DURATION);
         }
     }
-
     
-
     void Revive()
     {
+        GetComponent<SpriteRenderer>().enabled = true;
+        GetComponent<Collider2D>().enabled = true;
         health = BASE_HEALTH;
+        transform.position = transform.parent.position;
+        StartCoroutine("TakeDamageFlash");
     }
 
     void Death()
     {
         lives--;
+        GetComponent<SpriteRenderer>().enabled = false;
+        GetComponent<Collider2D>().enabled = false;
+
+        if(lives < 0)
+        {
+            Debug.Log("FINAL DEATH PARTICLE");
+        }
+        else
+        {
+            Invoke("Revive", REVIVE_TIME);
+        }
     }
 
     IEnumerator TakeDamageFlash()
@@ -80,6 +97,8 @@ public class Player : MonoBehaviour {
         float r = GetComponent<SpriteRenderer>().color.r;
         float b = GetComponent<SpriteRenderer>().color.b;
         float g = GetComponent<SpriteRenderer>().color.g;
+
+        invulnerable = true;
 
         Invoke("CancelInvuln", INVULN_DURATION);
 
