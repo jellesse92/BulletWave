@@ -18,7 +18,6 @@ public class PlayerJoin : MonoBehaviour {
         {
             if (Input.GetAxis(i.ToString() + "_RightTrigger") > .5f)
                 JoinJoystick(i);
-            
         }
     }
 
