@@ -60,7 +60,7 @@ public class PlayerSoundBullet : MonoBehaviour {
 
     void Deactivate()
     {
-        CancelInvoke("ApplyDamage");
+        CancelInvoke("ApplyDamageAll");
         gameObject.SetActive(false);
     }
 
