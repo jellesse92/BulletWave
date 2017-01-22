@@ -170,7 +170,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8e6e005e23a47a044bb317858d57b587, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bullet: {fileID: 1196672362626360, guid: 18df579fef9b17f4199aa64c25497654, type: 2}
+  bullet: {fileID: 1424809674060686, guid: cc4092175501cf04b88178bd63388ef6, type: 2}
   ammo: 10
 --- !u!114 &114598830621171594
 MonoBehaviour:
