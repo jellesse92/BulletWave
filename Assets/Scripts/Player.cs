@@ -27,18 +27,9 @@ public class Player : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 
-        Invoke("Test", 4f);
 	}
 
-    void Test()
-    {
-        Debug.Log("running test");
-        if (!gameObject.activeSelf)
-            return;
-        Death();
-        //TakeDamage(10);
-    }
-	
+
 	// Update is called once per frame
 	void Update () {
         float x = Input.GetAxis("1_RightJoystickX");
