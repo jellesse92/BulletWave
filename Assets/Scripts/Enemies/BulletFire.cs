@@ -34,6 +34,18 @@ public class BulletFire : MonoBehaviour {
                 Bullet b = bulletList[i].GetComponent<Bullet>();
                 b.direction = dir;
                 b.color = color;
+                if (b.color == 0)
+                {
+                    b.GetComponent<SpriteRenderer>().material.SetColor("_Color", Color.red);
+                }
+                if (b.color == 1)
+                {
+                    b.GetComponent<SpriteRenderer>().material.SetColor("_Color", Color.green);
+                }
+                if (b.color == 2)
+                {
+                    b.GetComponent<SpriteRenderer>().material.SetColor("_Color", Color.blue);
+                }
                 b.type = type;
                 b.damage = dmg;
                 b.speed = speed;

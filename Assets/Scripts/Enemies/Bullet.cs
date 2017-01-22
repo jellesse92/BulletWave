@@ -38,7 +38,6 @@ public class Bullet : MonoBehaviour
 
         if (!gameObject.GetComponent<SpriteRenderer>().isVisible)
         {
-            print(gameObject.GetComponent<SpriteRenderer>().isVisible);
             Invoke("Deactivate", 2f);
         }
     }
