@@ -107,6 +107,11 @@ public class PlayerWeaponScript : MonoBehaviour {
             timeCharged = 0f;
         }
 
+        if (input.GetKeyPress().leftTriggerPressed)
+        {
+            FrequencyShift();
+        }
+
         if (checkChargeTime)
             timeCharged += Time.deltaTime;      
 
@@ -115,11 +120,6 @@ public class PlayerWeaponScript : MonoBehaviour {
             ExecuteAttack();
             checkChargeTime = false;
             timeCharged = 0f;
-        }
-
-        if (Input.GetKeyDown(KeyCode.LeftShift))
-        {
-            FrequencyShift();
         }
 
         input.ResetKeyPress();
