@@ -43,7 +43,7 @@ public class Player : MonoBehaviour {
     {
         if(bullet != null)
         {
-            //Remove from deflector script
+            transform.GetChild(0).GetComponent<BulletDeflectorScript>().RemoveBulletFromHash(bullet);
         }
 
         if (invulnerable)
