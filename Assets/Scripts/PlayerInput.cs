@@ -27,7 +27,7 @@ public class PlayerInput : MonoBehaviour {
 
     KeyPress keysPressed = new KeyPress();
     KeyConfig inputConfig = new KeyConfig();
-    int joystickNum = 1;
+    int joystickNum = -1;
 
     bool checkForRightTriggerRelease = false;
 
@@ -48,7 +48,7 @@ public class PlayerInput : MonoBehaviour {
         float y = (Mathf.Abs(Input.GetAxis(inputConfig.verticalAxisName)) > 0.06) ? Input.GetAxis(inputConfig.verticalAxisName) : 0f;
 
         keysPressed.horizontalAxisValue = x;
-        keysPressed.verticalAxisValue = y *-1f;
+        keysPressed.verticalAxisValue = y;
 
         x = (Mathf.Abs(Input.GetAxis(inputConfig.rightHorizontalAxisName)) > 0.3) ? Input.GetAxis(inputConfig.rightHorizontalAxisName) : 0f;
         y = (Mathf.Abs(Input.GetAxis(inputConfig.rightVerticalAxisName)) > 0.3) ? Input.GetAxis(inputConfig.rightVerticalAxisName) : 0f;
@@ -86,7 +86,10 @@ public class PlayerInput : MonoBehaviour {
 
         if (index <= 0)
         {
-            //gameObject.SetActive(false);
+            
+            gameObject.SetActive(false);
+            transform.GetChild(0).GetComponent<PlayerWeaponScript>().CancelInvoke();
+            transform.GetChild(0).GetComponent<PlayerWeaponScript>().StopAllCoroutines();
             return;
         }
 
