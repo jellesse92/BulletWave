@@ -48,8 +48,13 @@ public class Player : MonoBehaviour {
 
     }
 
-    void TakeDamage(int damage)
+    void TakeDamage(int damage, GameObject bullet = null)
     {
+        if(bullet != null)
+        {
+            //Remove from deflector script
+        }
+
         if (invulnerable)
             return;
 
