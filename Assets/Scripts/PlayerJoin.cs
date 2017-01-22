@@ -40,10 +40,13 @@ public class PlayerJoin : MonoBehaviour {
 
     void JoinJoystick(int index)
     {
-        if (playersJoined >= 2)
+        if (playersJoined >= 2 || controlAssignment[0] == index)
             return;
+
         controlAssignment[playersJoined] = index;
         playersJoined++;
+        Debug.Log("Joystick: " + index);
+
         Debug.Log("Player Entered:" + playersJoined);
     }
 
@@ -62,6 +65,9 @@ public class PlayerJoin : MonoBehaviour {
 
     public void StartUpdate()
     {
+        controlAssignment[0] = -1;
+        controlAssignment[1] = -1;
+        playersJoined = 0;
         this.enabled = true;
     }
 

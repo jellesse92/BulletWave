@@ -10,6 +10,8 @@ public class PlayerInput : MonoBehaviour {
         public string horizontalAxisName = "Horizontal";
         public string verticalAxisName = "Vertical";
         public string rightTriggerName = "1_RightTrigger";
+        public string rightHorizontalAxisName = "1_RightJoystickX";
+        public string rightVerticalAxisName = "1_RightJoystickY";
     }
 
     [System.Serializable]
@@ -19,6 +21,8 @@ public class PlayerInput : MonoBehaviour {
         public float verticalAxisValue;
         public bool rightTriggerPressed;
         public bool rightTriggerReleased;
+        public float rightHorizontalAxisValue = 0f;
+        public float rightVerticalAxisValue = 0f;
     }
 
     KeyPress keysPressed = new KeyPress();
@@ -46,7 +50,13 @@ public class PlayerInput : MonoBehaviour {
         keysPressed.horizontalAxisValue = x;
         keysPressed.verticalAxisValue = y;
 
-        if(!checkForRightTriggerRelease && (joystickNum == -1 && Input.GetKeyDown(KeyCode.Space)) || (joystickNum > 0 && !checkForRightTriggerRelease && Input.GetAxis(inputConfig.rightTriggerName) > .5f))
+        x = (Mathf.Abs(Input.GetAxis(inputConfig.rightHorizontalAxisName)) > 0.3) ? Input.GetAxis(inputConfig.rightHorizontalAxisName) : 0f;
+        y = (Mathf.Abs(Input.GetAxis(inputConfig.rightVerticalAxisName)) > 0.3) ? Input.GetAxis(inputConfig.rightVerticalAxisName) : 0f;
+
+        keysPressed.rightHorizontalAxisValue = x;
+        keysPressed.rightVerticalAxisValue = y;
+
+        if (!checkForRightTriggerRelease && (joystickNum == -1 && Input.GetKeyDown(KeyCode.Space)) || (joystickNum > 0 && !checkForRightTriggerRelease && Input.GetAxis(inputConfig.rightTriggerName) > .5f))
         {
             keysPressed.rightTriggerPressed = true;
             checkForRightTriggerRelease = true;
@@ -73,7 +83,24 @@ public class PlayerInput : MonoBehaviour {
 
     public void SetInput(int index)
     {
+
+        Debug.Log("Setting: " + index.ToString());
+        if (index <= 0)
+            return;
+
+        string nStr = index.ToString();
         joystickNum = index;
+        inputConfig.rightTriggerName = nStr + "_RightTrigger";
+        inputConfig.horizontalAxisName = nStr + "_LeftJoystickX";
+        inputConfig.verticalAxisName = nStr + "_LeftJoystickY";
+        Debug.Log("Set:" + inputConfig.verticalAxisName);
+        inputConfig.rightHorizontalAxisName = nStr + "_RightJoystickX";
+        inputConfig.rightVerticalAxisName = nStr + "_RightJoystickY";
+    }
+
+    public int GetJoystick()
+    {
+        return joystickNum;
     }
 
 }

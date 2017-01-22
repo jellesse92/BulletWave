@@ -4,12 +4,16 @@ using UnityEngine;
 
 public class PlayerInputManager : MonoBehaviour {
 
+    PlayerJoin inputManager;
+
 	// Use this for initialization
 	void Start () {
-        transform.GetChild(0).GetComponent<PlayerInput>().SetInput
-            (GameObject.FindGameObjectWithTag("Player Join").GetComponent<PlayerJoin>().GetPlayerInputs(0));
-        transform.GetChild(1).GetComponent<PlayerInput>().SetInput
-            (GameObject.FindGameObjectWithTag("Player Join").GetComponent<PlayerJoin>().GetPlayerInputs(1));
+        inputManager = GameObject.FindGameObjectWithTag("Player Join").GetComponent<PlayerJoin>();
+
+        transform.GetChild(0).GetComponent<PlayerInput>().SetInput(inputManager.GetPlayerInputs(0));
+        transform.GetChild(1).GetComponent<PlayerInput>().SetInput(inputManager.GetPlayerInputs(1));
+        inputManager.StopUpdate();
+
     }
 	
 	// Update is called once per frame

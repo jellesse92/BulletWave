@@ -86,6 +86,13 @@ public class PlayerWeaponScript : MonoBehaviour {
             return;
         }
 
+        if(input.GetJoystick() > 0)
+            if (Mathf.Abs(input.GetKeyPress().rightHorizontalAxisValue) > .3f || Mathf.Abs(input.GetKeyPress().rightVerticalAxisValue) > .3f)
+            {
+                float angle = Mathf.Atan2(input.GetKeyPress().rightVerticalAxisValue, input.GetKeyPress().rightHorizontalAxisValue * -1f) * Mathf.Rad2Deg;
+                transform.rotation = Quaternion.AngleAxis(angle + 90f, Vector3.forward);
+            }
+
         if (input.GetKeyPress().rightTriggerPressed)
         {
             checkChargeTime = true;
