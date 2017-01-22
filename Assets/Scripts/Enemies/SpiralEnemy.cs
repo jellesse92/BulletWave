@@ -10,6 +10,7 @@ public class SpiralEnemy : Enemy {
     // Use this for initialization
     void Start() {
         inAttackRange = false;
+        inAggroRadius = false;
     }
 
     void Awake()
@@ -30,6 +31,7 @@ public class SpiralEnemy : Enemy {
             ApproachIdle();
         } else if (!inAttackRange && inAggroRadius)
         {
+            print("in aggro");
             ApproachIdle();
             Orbit();
         } if (inAttackRange)

@@ -32,6 +32,7 @@ public class PulsingSpiralEnemy : Enemy {
         } else if (inAttackRange)
         {
 
+            Approach();
         }
 	}
 
@@ -55,6 +56,36 @@ public class PulsingSpiralEnemy : Enemy {
         if (!isMovementLock)
         {
             transform.RotateAround(target.transform.position, Vector3.forward, 20 * Time.deltaTime);
+        }
+    }
+
+    protected new void Approach()
+    {
+        if (!isMovementLock)
+        {
+            var heading = target.transform.position - transform.position;
+            var direction = heading / heading.magnitude;
+            transform.Translate(direction * Time.deltaTime * speed);
+            Orbit();
+        } else 
+        {
+            var heading = target.transform.position - transform.position;
+            var direction = heading / heading.magnitude;
+            transform.Translate(-1 * direction * Time.deltaTime * speed);
+        }
+    }
+
+    protected new void Shoot()
+    {
+        if (!isCoolingDown)
+        {
+            coolDownTime = Random.Range(.5f, 1.5f);
+            var heading = target.transform.position - transform.position;
+            var direction = heading / heading.magnitude;
+            BulletList.GetComponent<BulletFire>().Fire(direction, transform.position, Random.Range(2f, 5f), projectileWaveType, bulletType, damage);
+            isCoolingDown = true;
+            isMovementLock = true;
+            Invoke("CoolDownShot", coolDownTime);
         }
     }
 }
