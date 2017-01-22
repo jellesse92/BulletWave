@@ -58,7 +58,7 @@ public class BulletDeflectorScript : MonoBehaviour {
         }
         foreach (GameObject bullet in bulletsInRange)
             ApplyDeflection(bullet);
-        
+        bulletsInRange = new HashSet<GameObject>();
     }
 
     public void DeactivateDeflector()
@@ -73,7 +73,19 @@ public class BulletDeflectorScript : MonoBehaviour {
 
     void ApplyDeflection(GameObject bullet)
     {
-        //Debug.Log("DEFLECT! THIS: " + bullet.name);
+        int type = bullet.GetComponent<Bullet>().type;
+
+        switch (type)
+        {
+            case 0:
+                if (bullet.GetComponent<Bullet>().color == playerColor)
+                    bullet.SetActive(false);
+                break;
+            case 1:
+                if(bullet.GetComponent<Bullet>().color == playerColor)
+                    bullet.GetComponent<Bullet>().Deflect();
+                break;
+        }
     }
 
 }

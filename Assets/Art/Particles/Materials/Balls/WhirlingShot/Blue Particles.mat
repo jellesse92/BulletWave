@@ -6,7 +6,7 @@ Material:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: Particles
+  m_Name: Blue Particles
   m_Shader: {fileID: 4800000, guid: 7682ab5e936afcb469d7fef4d5adf6eb, type: 3}
   m_ShaderKeywords: 
   m_LightmapFlags: 5
@@ -18,7 +18,7 @@ Material:
     - first:
         name: _MainTex
       second:
-        m_Texture: {fileID: 2800000, guid: 31d5983f1ac262c4082f854b3e5e1b53, type: 3}
+        m_Texture: {fileID: 2800000, guid: 5360e83c6cea19241bb9a93d26b182c1, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     m_Floats:
@@ -49,10 +49,10 @@ Material:
       second: {r: 1, g: 1, b: 1, a: 1}
     - first:
         name: _CoreColor
-      second: {r: 1, g: 0, b: 0, a: 1}
+      second: {r: 0.14705896, g: 0, b: 1, a: 1}
     - first:
         name: _TintColor
-      second: {r: 1, g: 0, b: 0, a: 0.5019608}
+      second: {r: 0.058823586, g: 0, b: 1, a: 0.5019608}
     - first:
         name: _TintColorB
       second: {r: 0.5, g: 0.5, b: 0.5, a: 1}
