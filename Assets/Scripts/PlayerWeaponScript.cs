@@ -9,7 +9,7 @@ public class PlayerWeaponScript : MonoBehaviour {
     public GameObject[] bulletTypes;
 
     const int BULLET_GENERATE_AMT = 20;
-    const float BULLET_FORCE = 1000f;
+    const float BULLET_FORCE = 220f;
 
     const int MAX_COLOR_RANGE = 3;                              //Maximum amounts of colors to shift through
     const float FREQ_SHIFT_CD = 2.0f;                           //Time shifting is on cooldown

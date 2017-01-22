@@ -6,6 +6,9 @@ public class Player : MonoBehaviour {
 
     public PlayerSpecialEffects playerSpecialEffects;
 
+    const float SHAKE_MAGNITUDE = .1f;
+    const float SHAKE_DURATION = .5f;
+
     const float INVULN_DURATION = 1.5f;
 
     const int BASE_LIVES = 3;
@@ -56,7 +59,7 @@ public class Player : MonoBehaviour {
         else
         {
             StartCoroutine("TakeDamageFlash");
-            playerSpecialEffects.StartShake(.3f, .5f);
+            playerSpecialEffects.StartShake(SHAKE_MAGNITUDE, SHAKE_DURATION);
         }
     }
 
