@@ -31,5 +31,13 @@ public class PlayerJoin : MonoBehaviour {
         playersJoined++;
 
     }
-    
+
+    int GetPlayerInputs(int player)
+    {
+        if (player >= 2)
+            Debug.Log("too many player join");
+        return controlAssignment[player];
+    }
+
+    
 }

@@ -105,8 +105,21 @@ public class PlayerWeaponScript : MonoBehaviour {
             timeCharged = 0f;
             checkChargeRelease = true;
         }
-       
+
         /*
+         * 
+              if(checkChargeRelease)
+        {
+
+            timeCharged += Time.deltaTime;
+            if (Input.GetKeyUp(KeyCode.Space))
+            {
+                ExecuteAttack();
+                checkChargeRelease = false;
+                timeCharged = 0f;
+            }
+            }
+        
         if (Input.GetKeyDown(KeyCode.Z))
         {
             ExecuteAttack1();
