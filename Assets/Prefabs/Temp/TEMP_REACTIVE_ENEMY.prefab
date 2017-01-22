@@ -19,13 +19,13 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4288854217590568}
-  - component: {fileID: 114022624393779836}
   - component: {fileID: 212755567272105924}
   - component: {fileID: 50516020123558574}
   - component: {fileID: 58904919547538710}
+  - component: {fileID: 114135880580407382}
   m_Layer: 0
   m_Name: TEMP_REACTIVE_ENEMY
-  m_TagString: Enemy
+  m_TagString: Bullet
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -37,7 +37,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1669151500612764}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 1, z: 0}
+  m_LocalPosition: {x: 0, y: -3, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -77,7 +77,7 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 1.125
---- !u!114 &114022624393779836
+--- !u!114 &114135880580407382
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -85,9 +85,19 @@ MonoBehaviour:
   m_GameObject: {fileID: 1669151500612764}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fd0b8d64f5f861a4cbe004c516794842, type: 3}
+  m_Script: {fileID: 11500000, guid: 4e89772c5ecd828439e198ebef53e381, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isFacingRight: 0
+  speed: 1
+  attackRadius: 10
+  movementCoolDownTime: 0
+  damage: 0
+  health: 0
+  ammo: 10
+  projectileWaveType: 0
+  bulletType: 0
+  BulletList: {fileID: 0}
 --- !u!212 &212755567272105924
 SpriteRenderer:
   m_ObjectHideFlags: 1

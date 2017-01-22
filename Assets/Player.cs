@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class Player : MonoBehaviour {
 
+    public PlayerSpecialEffects playerSpecialEffects;
+
     const float INVULN_DURATION = 1.5f;
 
     const int BASE_LIVES = 3;
@@ -18,9 +20,14 @@ public class Player : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-        TakeDamage(10);
 
+        Invoke("Test", 2f);
 	}
+
+    void Test()
+    {
+        TakeDamage(10);
+    }
 	
 	// Update is called once per frame
 	void Update () {
@@ -41,8 +48,8 @@ public class Player : MonoBehaviour {
         else
         {
             StartCoroutine("TakeDamageFlash");
+            playerSpecialEffects.StartShake(.3f, .5f);
         }
-
     }
 
     
@@ -54,7 +61,7 @@ public class Player : MonoBehaviour {
 
     void Death()
     {
-
+        lives--;
     }
 
     IEnumerator TakeDamageFlash()
