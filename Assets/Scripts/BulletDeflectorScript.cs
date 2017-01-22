@@ -78,10 +78,12 @@ public class BulletDeflectorScript : MonoBehaviour {
         switch (type)
         {
             case 0:
-                bullet.SetActive(false);
+                if (bullet.GetComponent<Bullet>().color == playerColor)
+                    bullet.SetActive(false);
                 break;
             case 1:
-                bullet.GetComponent<Bullet>().Deflect();
+                if(bullet.GetComponent<Bullet>().color == playerColor)
+                    bullet.GetComponent<Bullet>().Deflect();
                 break;
         }
     }
