@@ -1,4 +1,5 @@
 fileFormatVersion: 2
+<<<<<<< HEAD
 guid: 6d4cc0648b4524a4bab5cc53062299d2
 timeCreated: 1485058029
 licenseType: Free
@@ -22,6 +23,13 @@ TextureImporter:
     21300030: Player Sprite [SIDE]_15
     21300032: Player Sprite [SIDE]_16
     21300034: Player Sprite [SIDE]_17
+=======
+guid: 8272b656b36099241ad57985dcee47e9
+timeCreated: 1485058893
+licenseType: Free
+TextureImporter:
+  fileIDToRecycleName: {}
+>>>>>>> 3b27d0184ebfe9f572dd29dc707e5e6d809e5505
   serializedVersion: 4
   mipmaps:
     mipMapMode: 0
@@ -52,7 +60,11 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
+<<<<<<< HEAD
   spriteMode: 2
+=======
+  spriteMode: 1
+>>>>>>> 3b27d0184ebfe9f572dd29dc707e5e6d809e5505
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -76,6 +88,7 @@ TextureImporter:
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
+<<<<<<< HEAD
   - buildTarget: Standalone
     maxTextureSize: 2048
     textureFormat: -1
@@ -321,6 +334,11 @@ TextureImporter:
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
+=======
+  spriteSheet:
+    serializedVersion: 2
+    sprites: []
+>>>>>>> 3b27d0184ebfe9f572dd29dc707e5e6d809e5505
     outline: []
   spritePackingTag: 
   userData: 

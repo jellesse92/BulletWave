@@ -8,7 +8,8 @@ public class PulsingSpiralEnemy : Enemy {
     public GameObject iAmFollowing;
 
     public float idleSpeed = .9f;
-    private float idleCircleSize = .1f;
+    private float idleCircleSize = .15f;
+ 
 
 	// Use this for initialization
 	void Start () {
@@ -17,27 +18,43 @@ public class PulsingSpiralEnemy : Enemy {
 	
     void Awake()
     {
-        //
+        target = FindTarget();
     }
 	// Update is called once per frame
 	void FixedUpdate () {
-        IdleMovement();
+        float distance = Vector2.Distance(target.transform.position, transform.position);
+        if (!inAggroRadius)
+        {
+            IdleMovement();
+        } else if (inAggroRadius && !inAttackRange)
+        {
+
+        } else if (inAttackRange)
+        {
+
+        }
 	}
 
     protected new void IdleMovement()
     {
         if(isLeader)
         {
-            var xPos = Mathf.Sin(Time.time * idleSpeed) * idleCircleSize;
-            var yPos = Mathf.Cos(Time.time * idleSpeed) * idleCircleSize;
-            var zPos = transform.position.z *  -1 *  Time.deltaTime;
-            transform.Translate(xPos, yPos, zPos);
+            Orbit();
         } else
         {
             var heading = iAmFollowing.transform.position - transform.position;
             var direction = heading / heading.magnitude;
-            transform.Translate(direction * Time.deltaTime * 4);
+            transform.Translate(direction * Time.deltaTime * (speed + 1));
 
+        }
+    }
+
+
+    protected void Orbit()
+    {
+        if (!isMovementLock)
+        {
+            transform.RotateAround(target.transform.position, Vector3.forward, 20 * Time.deltaTime);
         }
     }
 }

@@ -18,7 +18,6 @@ public class PlayerJoin : MonoBehaviour {
         {
             if (Input.GetAxis(i.ToString() + "_RightTrigger") > .5f)
                 JoinJoystick(i);
-            
         }
     }
 
@@ -31,5 +30,13 @@ public class PlayerJoin : MonoBehaviour {
         playersJoined++;
 
     }
-    
+
+    int GetPlayerInputs(int player)
+    {
+        if (player >= 2)
+            Debug.Log("too many player join");
+        return controlAssignment[player];
+    }
+
+    
 }
