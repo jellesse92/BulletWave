@@ -6,7 +6,7 @@ public class SpiralEnemy : Enemy {
 
     public float idleSpeed = .0001f;
     private float idleCircleSize = .05f;
-    private float aggroRadius = 20f;
+    private bool inAggroRadius = true;
 
 
     // Use this for initialization
@@ -26,21 +26,18 @@ public class SpiralEnemy : Enemy {
     void FixedUpdate(){
 
         float distance = Vector2.Distance(target.transform.position, transform.position);
-        if (distance > aggroRadius)
+        if (!inAttackRange && !inAggroRadius)
         {
             idleSpeed += .0001f;
             ApproachIdle();
-        } else if (distance < aggroRadius && distance > attackRadius)
+        } else if (!inAttackRange && inAggroRadius)
         {
             ApproachIdle();
             Orbit();
-        } if (distance <= attackRadius)
+        } if (inAttackRange)
         {
             Shoot();
-            if (distance < attackRadius)
-            {
-                Retreat();
-            }
+            Retreat();
         }
     }
 

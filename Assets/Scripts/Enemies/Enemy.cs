@@ -10,6 +10,7 @@ public class Enemy : MonoBehaviour {
     public float speed = 1f;
     public float attackRadius = 10f;
     public float movementCoolDownTime;
+    public bool inAggroRadius;
     public int damage;
     public int health;
     public int ammo = 10;
@@ -90,7 +91,7 @@ public class Enemy : MonoBehaviour {
         }
     }
 
-    void OnTriggerEnter2d(Collider2D col)
+    void OnTriggerEnter2D(Collider2D col)
     {
         if (col.tag == "Bullet")
         {
@@ -99,6 +100,19 @@ public class Enemy : MonoBehaviour {
             {
                 TakeDamage(b.damage);
             }
+        }
+        else if (col.tag == "Player")
+        {
+           
+            inAttackRange = true;
+        }
+    }
+
+    void OnTriggerExit2D(Collider2D col)
+    {
+        if(col.tag == "Player")
+        {
+            inAttackRange = false;
         }
     }
 }
