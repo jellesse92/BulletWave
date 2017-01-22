@@ -19,21 +19,14 @@ public class Bullet : MonoBehaviour
     GameObject greenParticle;
 
     // Use this for initialization
+    void Awake()
+    {
+        getParticle();
+    }
     void Start()
     {
         deflected = false;
         startTime = Time.time;
-
-        foreach (Transform child in transform)
-        {
-            if (child.name == "RedParticle")
-                redParticle = child.gameObject;
-            else if(child.name == "BlueParticle")
-                blueParticle = child.gameObject;
-            else if (child.name == "GreenParticle")
-                greenParticle = child.gameObject;
-        }
-        Debug.Log(redParticle);
     }
 
     void getParticle()
@@ -71,7 +64,7 @@ public class Bullet : MonoBehaviour
 
     public void changeColor(string color)
     {
-        getParticle();
+        //getParticle();
         if (color == "red" || color == "Red")
         {
             redParticle.SetActive(true);
