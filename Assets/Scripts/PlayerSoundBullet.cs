@@ -40,6 +40,15 @@ public class PlayerSoundBullet : MonoBehaviour {
     public void Initialize(int c)
     {
         playerColor = c;
+        foreach (Transform child in transform)
+        {
+            if (playerColor == 0 && child.name == "Red")
+                child.GetComponent<ParticleSystem>().Play();
+            else if (playerColor == 1 && child.name == "Green")
+                child.GetComponent<ParticleSystem>().Play();
+            else if (playerColor == 2 && child.name == "Blue")
+                child.GetComponent<ParticleSystem>().Play();
+        }
         InvokeRepeating("ApplyDamageAll", 0f, INVOKE_DAMAGE_RATE);
         Invoke("Deactivate", lifeTime);
 

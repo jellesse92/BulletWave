@@ -6,7 +6,7 @@ Material:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: Trail2
+  m_Name: Green Trail B
   m_Shader: {fileID: 4800000, guid: 7682ab5e936afcb469d7fef4d5adf6eb, type: 3}
   m_ShaderKeywords: 
   m_LightmapFlags: 5
@@ -40,7 +40,7 @@ Material:
       second: {r: 1, g: 1, b: 1, a: 1}
     - first:
         name: _CoreColor
-      second: {r: 1, g: 0.5509128, b: 0.20588237, a: 1}
+      second: {r: 0.19117653, g: 1, b: 0, a: 1}
     - first:
         name: _TintColor
-      second: {r: 1, g: 0.5172414, b: 0, a: 1}
+      second: {r: 0.102941155, g: 1, b: 0, a: 1}

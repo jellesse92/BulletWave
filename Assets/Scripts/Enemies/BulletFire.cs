@@ -37,14 +37,17 @@ public class BulletFire : MonoBehaviour {
                 if (b.color == 0)
                 {
                     b.GetComponent<SpriteRenderer>().material.SetColor("_Color", Color.red);
+                    b.changeColor("red");
                 }
                 if (b.color == 1)
                 {
                     b.GetComponent<SpriteRenderer>().material.SetColor("_Color", Color.green);
+                    b.changeColor("green");
                 }
                 if (b.color == 2)
                 {
                     b.GetComponent<SpriteRenderer>().material.SetColor("_Color", Color.blue);
+                    b.changeColor("blue");
                 }
                 b.type = type;
                 b.damage = dmg;

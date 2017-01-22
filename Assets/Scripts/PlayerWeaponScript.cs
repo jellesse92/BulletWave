@@ -107,6 +107,11 @@ public class PlayerWeaponScript : MonoBehaviour {
             timeCharged = 0f;
         }
 
+        if (input.GetKeyPress().leftTriggerPressed)
+        {
+            FrequencyShift();
+        }
+
         if (checkChargeTime)
             timeCharged += Time.deltaTime;      
 
@@ -115,11 +120,6 @@ public class PlayerWeaponScript : MonoBehaviour {
             ExecuteAttack();
             checkChargeTime = false;
             timeCharged = 0f;
-        }
-
-        if (Input.GetKeyDown(KeyCode.LeftShift))
-        {
-            FrequencyShift();
         }
 
         input.ResetKeyPress();
@@ -203,10 +203,11 @@ public class PlayerWeaponScript : MonoBehaviour {
     void FireBullet(int type)
     {
         GameObject bullet = GetBullet(type);
+        bullet.SetActive(true);
         bullet.GetComponent<PlayerSoundBullet>().Initialize(GetComponent<Player>().color);
         bullet.transform.position = transform.position;
         bullet.transform.rotation = Quaternion.Euler(0f, 0f, transform.rotation.eulerAngles.z);
-        bullet.SetActive(true);
+
         bullet.GetComponent<Rigidbody2D>().AddForce(transform.up * BULLET_FORCE);
     }
 
@@ -239,8 +240,8 @@ public class PlayerWeaponScript : MonoBehaviour {
         switch (GetComponent<Player>().color)
         {
             case 0: ApplyShift(0,Color.red); break;
-            case 1: ApplyShift(1,Color.blue); break;
-            case 2: ApplyShift(2,Color.green); break;
+            case 2: ApplyShift(1,Color.blue); break;
+            case 1: ApplyShift(2,Color.green); break;
         }
     }
 
