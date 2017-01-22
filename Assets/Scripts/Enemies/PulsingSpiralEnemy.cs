@@ -13,7 +13,7 @@ public class PulsingSpiralEnemy : Enemy {
 
 	// Use this for initialization
 	void Start () {
-        
+        isMovementLock = false;
 	}
 	
     void Awake()
@@ -23,14 +23,15 @@ public class PulsingSpiralEnemy : Enemy {
 	// Update is called once per frame
 	void FixedUpdate () {
         float distance = Vector2.Distance(target.transform.position, transform.position);
-        if (!inAggroRadius)
+        if (!inAggroRadius && !inAttackRange)
         {
-            IdleMovement();
+            Approach();
         } else if (inAggroRadius && !inAttackRange)
         {
-
+            Approach();
         } else if (inAttackRange)
         {
+            Shoot();
 
         }
 	}
@@ -54,7 +55,43 @@ public class PulsingSpiralEnemy : Enemy {
     {
         if (!isMovementLock)
         {
-            transform.RotateAround(target.transform.position, Vector3.forward, 20 * Time.deltaTime);
+            transform.RotateAround(target.transform.position, Vector3.forward, 30 * Time.deltaTime);
+        }
+    }
+
+    protected new void Approach()
+    {
+        if (!isMovementLock)
+        {
+            var heading = target.transform.position - transform.position;
+            var direction = heading / heading.magnitude;
+            transform.Translate(direction * Time.deltaTime * speed);
+            Orbit();
+        }
+    }
+
+    private void CoolDownShot()
+    {
+        isCoolingDown = false;
+    }
+    private void CoolDownWalk()
+    {
+        isMovementLock = false;
+    }
+
+    protected new void Shoot()
+    {
+        if (!isCoolingDown)
+        {
+            coolDownTime = Random.Range(.5f, 1.5f);
+            movementCoolDownTime = 3;
+            var heading = target.transform.position - transform.position;
+            var direction = heading / heading.magnitude;
+            BulletList.GetComponent<BulletFire>().Fire(direction, transform.position, Random.Range(2f, 5f), projectileWaveType, bulletType, damage);
+            isCoolingDown = true;
+            isMovementLock = true;
+            Invoke("CoolDownShot", coolDownTime);
+            Invoke("CoolDownWalk", movementCoolDownTime);
         }
     }
 }

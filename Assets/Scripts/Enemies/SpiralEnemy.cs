@@ -10,6 +10,7 @@ public class SpiralEnemy : Enemy {
     // Use this for initialization
     void Start() {
         inAttackRange = false;
+        inAggroRadius = false;
     }
 
     void Awake()
@@ -30,6 +31,7 @@ public class SpiralEnemy : Enemy {
             ApproachIdle();
         } else if (!inAttackRange && inAggroRadius)
         {
+            print("in aggro");
             ApproachIdle();
             Orbit();
         } if (inAttackRange)
@@ -60,7 +62,7 @@ public class SpiralEnemy : Enemy {
         {
             var heading = target.transform.position - transform.position;
             var direction = heading / heading.magnitude;
-            transform.Translate(-direction * Time.deltaTime * speed);
+            transform.Translate(-1 * direction * Time.deltaTime * speed);
             Orbit();
         }
     }
