@@ -8,7 +8,7 @@ public class PulsingSpiralEnemy : Enemy {
     public GameObject iAmFollowing;
 
     public float idleSpeed = .9f;
-    private float idleCircleSize = .05f;
+    private float idleCircleSize = .1f;
 
 	// Use this for initialization
 	void Start () {
@@ -34,7 +34,10 @@ public class PulsingSpiralEnemy : Enemy {
             transform.Translate(xPos, yPos, zPos);
         } else
         {
-            transform.position = Vector2.MoveTowards(transform.position, iAmFollowing.transform.position, .02f);
+            var heading = iAmFollowing.transform.position - transform.position;
+            var direction = heading / heading.magnitude;
+            transform.Translate(direction * Time.deltaTime * 4);
+
         }
     }
 }
