@@ -54,8 +54,6 @@ public class PlayerInput : MonoBehaviour {
         else if (checkForRightTriggerRelease)
             if((joystickNum == -1 && Input.GetKeyUp(KeyCode.Space)) || (joystickNum > 0 && Input.GetAxis(inputConfig.rightTriggerName) < .5f))
             {
-                Debug.Log("testing");
-                Debug.Log(joystickNum == -1 && Input.GetKeyUp(KeyCode.Space));
                 checkForRightTriggerRelease = false;
                 keysPressed.rightTriggerReleased = true;
             }

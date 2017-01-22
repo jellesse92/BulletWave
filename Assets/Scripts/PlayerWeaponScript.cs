@@ -79,7 +79,6 @@ public class PlayerWeaponScript : MonoBehaviour {
 
     // Update is called once per frame
     void FixedUpdate() {
-        TEMPORARY_CHARGE_STATUS();
 
         if (input.GetKeyPress().rightTriggerPressed)
         {
@@ -165,17 +164,6 @@ public class PlayerWeaponScript : MonoBehaviour {
     {
         //weaponAudio.PlayOneShot(maxWeaponSound);
         FireBullet(2);
-
-    }
-
-    void TEMPORARY_CHARGE_STATUS()
-    {
-        if (timeCharged > CHARGE_TIER3)
-            Debug.Log("MAX CHARGE");
-        else if (timeCharged > CHARGE_TIER2)
-            Debug.Log("TIER 2 CHARGE");
-        else if (timeCharged > CHARGE_TIER1)
-            Debug.Log("TIER 1 CHARGE");
 
     }
 
