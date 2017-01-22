@@ -22,6 +22,7 @@ public class Player : MonoBehaviour {
     int lives = BASE_LIVES;
 
     bool invulnerable = false;
+    bool isDead = false;
 
 	// Use this for initialization
 	void Start () {
@@ -71,6 +72,7 @@ public class Player : MonoBehaviour {
     {
         GetComponent<SpriteRenderer>().enabled = true;
         GetComponent<Collider2D>().enabled = true;
+        isDead = false;
         health = BASE_HEALTH;
         transform.position = transform.parent.position;
         StartCoroutine("TakeDamageFlash");
@@ -78,6 +80,7 @@ public class Player : MonoBehaviour {
 
     void Death()
     {
+        isDead = true;
         lives--;
         GetComponent<SpriteRenderer>().enabled = false;
         GetComponent<Collider2D>().enabled = false;
@@ -123,5 +126,10 @@ public class Player : MonoBehaviour {
     {
         invulnerable = false;
         AlphaColorShift(1f);
+    }
+
+    public bool DeathStatus()
+    {
+        return isDead;
     }
 }

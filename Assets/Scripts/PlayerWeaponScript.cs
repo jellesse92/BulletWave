@@ -80,6 +80,12 @@ public class PlayerWeaponScript : MonoBehaviour {
     // Update is called once per frame
     void FixedUpdate() {
 
+        if (GetComponent<Player>().DeathStatus())
+        {
+            input.ResetKeyPress();
+            return;
+        }
+
         if (input.GetKeyPress().rightTriggerPressed)
         {
             checkChargeTime = true;
