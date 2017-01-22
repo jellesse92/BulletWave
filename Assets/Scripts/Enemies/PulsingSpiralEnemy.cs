@@ -9,10 +9,12 @@ public class PulsingSpiralEnemy : Enemy {
 
     public float idleSpeed = .9f;
     private float idleCircleSize = .15f;
- 
 
-	// Use this for initialization
-	void Start () {
+
+    // Use this for initialization
+    protected override void EnemySpecificStart()
+    {
+        inAttackRange = false;
         isMovementLock = false;
 	}
 	
@@ -28,11 +30,12 @@ public class PulsingSpiralEnemy : Enemy {
             Approach();
         } else if (inAggroRadius && !inAttackRange)
         {
-            Approach();
+            Orbit();
+            //Approach();
         } else if (inAttackRange)
         {
             Shoot();
-
+            Orbit();
         }
 	}
 
@@ -53,9 +56,11 @@ public class PulsingSpiralEnemy : Enemy {
 
     protected void Orbit()
     {
+
+        Vector3 rotationMask = new Vector3(0, 0, 1);
         if (!isMovementLock)
         {
-            transform.RotateAround(target.transform.position, Vector3.forward, 30 * Time.deltaTime);
+            transform.RotateAround(target.transform.position, rotationMask,  20 * Time.deltaTime);
         }
     }
 
@@ -63,9 +68,7 @@ public class PulsingSpiralEnemy : Enemy {
     {
         if (!isMovementLock)
         {
-            var heading = target.transform.position - transform.position;
-            var direction = heading / heading.magnitude;
-            transform.Translate(direction * Time.deltaTime * speed);
+            transform.position = Vector2.MoveTowards(transform.position, target.transform.position, .01f);
             Orbit();
         }
     }

@@ -12,6 +12,7 @@ public class PlayerInput : MonoBehaviour {
         public string rightTriggerName = "1_RightTrigger";
         public string rightHorizontalAxisName = "1_RightJoystickX";
         public string rightVerticalAxisName = "1_RightJoystickY";
+        public string leftTriggerName = "1_LeftTrigger";
     }
 
     [System.Serializable]
@@ -23,11 +24,12 @@ public class PlayerInput : MonoBehaviour {
         public bool rightTriggerReleased;
         public float rightHorizontalAxisValue = 0f;
         public float rightVerticalAxisValue = 0f;
+        public bool leftTriggerPressed;
     }
 
     KeyPress keysPressed = new KeyPress();
     KeyConfig inputConfig = new KeyConfig();
-    int joystickNum = 1;
+    int joystickNum = -1;
 
     bool checkForRightTriggerRelease = false;
 
@@ -68,12 +70,18 @@ public class PlayerInput : MonoBehaviour {
                 keysPressed.rightTriggerReleased = true;
             }
 
+        if((joystickNum == -1 && Input.GetKeyDown(KeyCode.LeftShift)) || (joystickNum > 0 && Input.GetAxis(inputConfig.leftTriggerName) > .5f))
+        {
+            keysPressed.leftTriggerPressed = true;
+        }
+
     }
 
     public void ResetKeyPress()
     {
         keysPressed.rightTriggerPressed = false;
         keysPressed.rightTriggerReleased = false;
+        keysPressed.leftTriggerPressed = false;
     }
 
     public KeyPress GetKeyPress()
@@ -83,19 +91,23 @@ public class PlayerInput : MonoBehaviour {
 
     public void SetInput(int index)
     {
-
-        Debug.Log("Setting: " + index.ToString());
         if (index <= 0)
+        {
+            
+            gameObject.SetActive(false);
+            transform.GetChild(0).GetComponent<PlayerWeaponScript>().CancelInvoke();
+            transform.GetChild(0).GetComponent<PlayerWeaponScript>().StopAllCoroutines();
             return;
+        }
 
         string nStr = index.ToString();
         joystickNum = index;
         inputConfig.rightTriggerName = nStr + "_RightTrigger";
         inputConfig.horizontalAxisName = nStr + "_LeftJoystickX";
         inputConfig.verticalAxisName = nStr + "_LeftJoystickY";
-        Debug.Log("Set:" + inputConfig.verticalAxisName);
         inputConfig.rightHorizontalAxisName = nStr + "_RightJoystickX";
         inputConfig.rightVerticalAxisName = nStr + "_RightJoystickY";
+        inputConfig.leftTriggerName = nStr + "_LeftTrigger";
     }
 
     public int GetJoystick()

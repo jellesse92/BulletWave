@@ -2,12 +2,14 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+
 public class ApproachEnemy : Enemy {
 
     // Use this for initialization
-    void Start()
+    protected override void EnemySpecificStart()
     {
         inAttackRange = false;
+
     }
 
     void Awake()

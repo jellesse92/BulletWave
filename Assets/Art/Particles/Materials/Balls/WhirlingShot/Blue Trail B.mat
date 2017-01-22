@@ -6,7 +6,7 @@ Material:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: Particles
+  m_Name: Blue Trail B
   m_Shader: {fileID: 4800000, guid: 7682ab5e936afcb469d7fef4d5adf6eb, type: 3}
   m_ShaderKeywords: 
   m_LightmapFlags: 5
@@ -18,19 +18,10 @@ Material:
     - first:
         name: _MainTex
       second:
-        m_Texture: {fileID: 2800000, guid: 31d5983f1ac262c4082f854b3e5e1b53, type: 3}
+        m_Texture: {fileID: 2800000, guid: 3101daa59b5322b4f86eac5e2e5d08d0, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     m_Floats:
-    - first:
-        name: _ColorStrB
-      second: 0.01
-    - first:
-        name: _ColorStrG
-      second: 4
-    - first:
-        name: _ColorStrR
-      second: 4
     - first:
         name: _CoreStrength
       second: 5
@@ -42,23 +33,14 @@ Material:
       second: 3
     - first:
         name: _TintStrength
-      second: 0.9821428
+      second: 5
     m_Colors:
     - first:
         name: _Color
       second: {r: 1, g: 1, b: 1, a: 1}
     - first:
         name: _CoreColor
-      second: {r: 1, g: 0, b: 0, a: 1}
+      second: {r: 0, g: 0.11764693, b: 1, a: 1}
     - first:
         name: _TintColor
-      second: {r: 1, g: 0, b: 0, a: 0.5019608}
-    - first:
-        name: _TintColorB
-      second: {r: 0.5, g: 0.5, b: 0.5, a: 1}
-    - first:
-        name: _TintColorG
-      second: {r: 0.2827587, g: 0, b: 1, a: 0.40392157}
-    - first:
-        name: _TintColorR
-      second: {r: 0.59432065, g: 0.2647059, b: 1, a: 1}
+      second: {r: 0.014705658, g: 0, b: 1, a: 1}

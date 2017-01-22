@@ -14,13 +14,33 @@ public class Bullet : MonoBehaviour
     public int counter = 0;
     public float startTime;
 
+    GameObject redParticle;
+    GameObject blueParticle;
+    GameObject greenParticle;
+
     // Use this for initialization
+    void Awake()
+    {
+        getParticle();
+    }
     void Start()
     {
         deflected = false;
         startTime = Time.time;
     }
 
+    void getParticle()
+    {
+        foreach (Transform child in transform)
+        {
+            if (child.name == "RedParticle")
+                redParticle = child.gameObject;
+            else if (child.name == "BlueParticle")
+                blueParticle = child.gameObject;
+            else if (child.name == "GreenParticle")
+                greenParticle = child.gameObject;
+        }
+    }
     // Update is called once per frame
     void FixedUpdate()
     {
@@ -42,6 +62,28 @@ public class Bullet : MonoBehaviour
         }
     }
 
+    public void changeColor(string color)
+    {
+        //getParticle();
+        if (color == "red" || color == "Red")
+        {
+            redParticle.SetActive(true);
+            blueParticle.SetActive(false);
+            greenParticle.SetActive(false);
+        }
+        else if (color == "blue" || color == "Blue")
+        {
+            redParticle.SetActive(false);
+            blueParticle.SetActive(true);
+            greenParticle.SetActive(false);
+        }
+        else if (color == "green" || color == "Green")
+        {
+            redParticle.SetActive(false);
+            blueParticle.SetActive(false);
+            greenParticle.SetActive(true);
+        }
+    }
     public void Deactivate()
     {
         gameObject.SetActive(false);
