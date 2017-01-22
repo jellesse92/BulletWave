@@ -6,8 +6,6 @@ public class SpiralEnemy : Enemy {
 
     public float idleSpeed = .0001f;
     private float idleCircleSize = .05f;
-    private bool inAggroRadius = true;
-
 
     // Use this for initialization
     void Start() {

@@ -23,9 +23,15 @@ public class PulsingSpiralEnemy : Enemy {
 	// Update is called once per frame
 	void FixedUpdate () {
         float distance = Vector2.Distance(target.transform.position, transform.position);
-        if (distance > attackRadius)
+        if (!inAggroRadius)
         {
             IdleMovement();
+        } else if (inAggroRadius && !inAttackRange)
+        {
+
+        } else if (inAttackRange)
+        {
+
         }
 	}
 
