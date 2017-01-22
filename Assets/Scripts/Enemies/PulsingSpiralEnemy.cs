@@ -9,10 +9,11 @@ public class PulsingSpiralEnemy : Enemy {
 
     public float idleSpeed = .9f;
     private float idleCircleSize = .15f;
- 
 
-	// Use this for initialization
-	void Start () {
+
+    // Use this for initialization
+    protected override void EnemySpecificStart()
+    {
         isMovementLock = false;
 	}
 	

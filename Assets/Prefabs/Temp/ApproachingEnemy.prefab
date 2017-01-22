@@ -158,6 +158,8 @@ MonoBehaviour:
   projectileWaveType: 0
   bulletType: 0
   BulletList: {fileID: 1519555733819502}
+  deathParticle: {fileID: 1652741322170450, guid: 7c3b6e079a67dc443b931edad99a6b72,
+    type: 2}
 --- !u!114 &114689644655990198
 MonoBehaviour:
   m_ObjectHideFlags: 1

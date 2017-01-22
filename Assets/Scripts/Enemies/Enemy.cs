@@ -17,6 +17,8 @@ public class Enemy : MonoBehaviour {
     public int projectileWaveType; // 0 - 2...    || 0 = r || 1 = g  || 2 = b
     public int bulletType;
     public GameObject BulletList;
+    public GameObject deathParticle;
+    GameObject ParticlesHolder;
 
     protected Animator anim;
     protected bool isDead;
@@ -30,8 +32,46 @@ public class Enemy : MonoBehaviour {
 
     void Start()
     {
-         inAttackRange = false;
+        inAttackRange = false;
+
+        EnemySpecificStart();
+        InstantiateParticles();
     }
+
+    void InstantiateParticles()
+    {
+        bool foundParticle = false;
+        if (!GameObject.Find("Particles"))
+        {
+            ParticlesHolder = new GameObject();
+            ParticlesHolder.name = "Particles";
+        }
+        else
+        {
+            ParticlesHolder = GameObject.Find("Particles");
+        }
+        foreach(Transform child in ParticlesHolder.transform)
+        {
+            if (child.name == "EnemyDeathParticle(Clone)")
+            {
+                deathParticle = child.gameObject;
+                foundParticle = true;
+                break;
+            }
+        }
+
+        if (!foundParticle)
+        {
+            deathParticle = Instantiate(deathParticle);
+            deathParticle.transform.parent = ParticlesHolder.transform;
+        }
+    }
+
+    protected virtual void EnemySpecificStart()
+    {
+
+    }
+
     void Awake()
     {
 
@@ -86,6 +126,11 @@ public class Enemy : MonoBehaviour {
         //Death Animation?
         if (health <= 0)
         {
+            if (deathParticle)
+            {
+                deathParticle.transform.position = transform.position;
+                deathParticle.GetComponent<ParticleSystem>().Play();
+            }
             isDead = true;
             gameObject.SetActive(false);
         }

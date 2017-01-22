@@ -8,7 +8,8 @@ public class SpiralEnemy : Enemy {
     private float idleCircleSize = .05f;
 
     // Use this for initialization
-    void Start() {
+    protected override void EnemySpecificStart()
+    {
         inAttackRange = false;
         inAggroRadius = false;
     }
