@@ -17,6 +17,7 @@ public class Bullet : MonoBehaviour
     GameObject redParticle;
     GameObject blueParticle;
     GameObject greenParticle;
+    GameObject explosion;
 
     // Use this for initialization
     void Awake()
@@ -39,6 +40,8 @@ public class Bullet : MonoBehaviour
                 blueParticle = child.gameObject;
             else if (child.name == "GreenParticle")
                 greenParticle = child.gameObject;
+            else if (child.name == "Explosion")
+                explosion = child.gameObject;
         }
     }
     // Update is called once per frame
@@ -98,7 +101,33 @@ public class Bullet : MonoBehaviour
     {
         if (!deflected && col.tag == "Player")
         {
-            Debug.Log(this.gameObject);
+            if (redParticle.activeSelf)
+            {
+                redParticle.SetActive(false);
+                foreach (Transform child in explosion.transform)
+                {
+                    if (child.name == "Red")
+                        child.GetComponent<ParticleSystem>().Play();
+                }
+            }
+            if (blueParticle.activeSelf)
+            {
+                blueParticle.SetActive(false);
+                foreach (Transform child in explosion.transform)
+                {
+                    if (child.name == "Blue")
+                        child.GetComponent<ParticleSystem>().Play();
+                }
+            }
+            if (greenParticle.activeSelf)
+            {
+                greenParticle.SetActive(false);
+                foreach (Transform child in explosion.transform)
+                {
+                    if (child.name == "Green")
+                        child.GetComponent<ParticleSystem>().Play();
+                }
+            }
             col.GetComponent<Player>().TakeDamage(damage, this.gameObject);
         }
     }
