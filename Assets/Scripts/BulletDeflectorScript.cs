@@ -46,6 +46,16 @@ public class BulletDeflectorScript : MonoBehaviour {
     public void ActivateDeflector()
     {
         active = true;
+        playerColor = transform.parent.GetComponent<Player>().color;
+        foreach(Transform child in transform)
+        {
+            if (playerColor == 0 && child.name == "Red Deflector")
+                child.GetComponent<ParticleSystem>().Play();
+            else if (playerColor == 1 && child.name == "Green Deflector")
+                child.GetComponent<ParticleSystem>().Play();
+            else if (playerColor == 2 && child.name == "Blue Deflector")
+                child.GetComponent<ParticleSystem>().Play();
+        }
         foreach (GameObject bullet in bulletsInRange)
             ApplyDeflection(bullet);
         
