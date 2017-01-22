@@ -11,11 +11,18 @@ public class Load : MonoBehaviour {
     {
         sceneIndex = index;
     }
+
     public void LoadScene()
     {
         if(sceneIndex == 0)
             Application.Quit();
         else
             SceneManager.LoadScene(sceneIndex);
+    }
+
+    public void LoadMainMenu()
+    {
+        SceneManager.LoadScene(0);
+        Time.timeScale = 1;
     }
 }
