@@ -73,7 +73,13 @@ public class Spawner3 : MonoBehaviour {
             {
                 PulsingSpiralEnemy b = senemyList[i].GetComponentInChildren<PulsingSpiralEnemy>();
                 senemyList[i].transform.position = transform.position;
-                b.attackRadius = Random.Range(7f, 13f);
+                if(i == 0)
+                {
+                    b.isLeader = true;
+                } else
+                {
+                    b.iAmFollowing = senemyList[i];
+                }
                 b.projectileWaveType = (int)Random.Range(0.0f, 3f);
                 if (b.projectileWaveType == 0)
                 {

@@ -28,13 +28,11 @@ public class SpiralEnemy : Enemy {
         float distance = Vector2.Distance(target.transform.position, transform.position);
         if (!inAttackRange && !inAggroRadius)
         {
-            print("In attack Range");
             idleSpeed += .0001f;
             ApproachIdle();
         } else if (!inAttackRange && inAggroRadius)
         {
-            print("in aggro");
-            ApproachIdle();
+            Approach();
             Orbit();
         } if (inAttackRange)
         {
@@ -51,11 +49,8 @@ public class SpiralEnemy : Enemy {
     {
         if (!isMovementLock)
         {
-            if (!isMovementLock)
-            {
-                transform.position = Vector2.MoveTowards(transform.position, target.transform.position, .01f);
-                Orbit();
-            }
+            transform.position = Vector2.MoveTowards(transform.position, target.transform.position, speed / 3);
+            Orbit();
         }
     }
 
@@ -63,9 +58,7 @@ public class SpiralEnemy : Enemy {
     {
         if (!isMovementLock)
         {
-            var heading = target.transform.position - transform.position;
-            var direction = heading / heading.magnitude;
-            transform.Translate(-1 * direction * Time.deltaTime * speed);
+            transform.position = Vector2.MoveTowards(transform.position, target.transform.position, -speed / 30);
             Orbit();
         }
     }
