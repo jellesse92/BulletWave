@@ -55,7 +55,6 @@ GameObject:
   - component: {fileID: 114276389126351586}
   - component: {fileID: 50445976817550374}
   - component: {fileID: 61981209291922268}
-  - component: {fileID: 114382788988643552}
   - component: {fileID: 114977402575848478}
   - component: {fileID: 82660232088346670}
   m_Layer: 8
@@ -114,7 +113,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1623592572219498}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: -1, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4962400484706766}
@@ -296,18 +295,6 @@ MonoBehaviour:
   tier2WeaponSound: {fileID: 8300000, guid: f10277a6a294ed14a804e1c222c7b949, type: 3}
   maxWeaponSound: {fileID: 8300000, guid: 8a8df6f692b4a2f4f8de5d0d1d81625b, type: 3}
   input: {fileID: 114114442124749002}
---- !u!114 &114382788988643552
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1536125673376954}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5152db46b039ec149b0d134b54023f40, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  speed: 10
 --- !u!114 &114618601448229002
 MonoBehaviour:
   m_ObjectHideFlags: 1

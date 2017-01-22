@@ -27,7 +27,7 @@ public class PlayerInput : MonoBehaviour {
 
     KeyPress keysPressed = new KeyPress();
     KeyConfig inputConfig = new KeyConfig();
-    int joystickNum = 1;
+    int joystickNum = -1;
 
     bool checkForRightTriggerRelease = false;
 
@@ -84,9 +84,15 @@ public class PlayerInput : MonoBehaviour {
     public void SetInput(int index)
     {
 
-        Debug.Log("Setting: " + index.ToString());
         if (index <= 0)
+        {
+            
+            gameObject.SetActive(false);
+            transform.GetChild(0).GetComponent<PlayerWeaponScript>().CancelInvoke();
+            transform.GetChild(0).GetComponent<PlayerWeaponScript>().StopAllCoroutines();
             return;
+        }
+
 
         string nStr = index.ToString();
         joystickNum = index;
