@@ -1,0 +1,328 @@
+fileFormatVersion: 2
+guid: 6d4cc0648b4524a4bab5cc53062299d2
+timeCreated: 1485058029
+licenseType: Free
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: Player Sprite [SIDE]_0
+    21300002: Player Sprite [SIDE]_1
+    21300004: Player Sprite [SIDE]_2
+    21300006: Player Sprite [SIDE]_3
+    21300008: Player Sprite [SIDE]_4
+    21300010: Player Sprite [SIDE]_5
+    21300012: Player Sprite [SIDE]_6
+    21300014: Player Sprite [SIDE]_7
+    21300016: Player Sprite [SIDE]_8
+    21300018: Player Sprite [SIDE]_9
+    21300020: Player Sprite [SIDE]_10
+    21300022: Player Sprite [SIDE]_11
+    21300024: Player Sprite [SIDE]_12
+    21300026: Player Sprite [SIDE]_13
+    21300028: Player Sprite [SIDE]_14
+    21300030: Player Sprite [SIDE]_15
+    21300032: Player Sprite [SIDE]_16
+    21300034: Player Sprite [SIDE]_17
+  serializedVersion: 4
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    filterMode: -1
+    aniso: -1
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 100
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  platformSettings:
+  - buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+  - buildTarget: Standalone
+    maxTextureSize: 2048
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Player Sprite [SIDE]_0
+      rect:
+        serializedVersion: 2
+        x: 15
+        y: 48
+        width: 19
+        height: 15
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Player Sprite [SIDE]_1
+      rect:
+        serializedVersion: 2
+        x: 37
+        y: 45
+        width: 27
+        height: 11
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Player Sprite [SIDE]_2
+      rect:
+        serializedVersion: 2
+        x: 81
+        y: 46
+        width: 15
+        height: 17
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Player Sprite [SIDE]_3
+      rect:
+        serializedVersion: 2
+        x: 99
+        y: 46
+        width: 27
+        height: 11
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Player Sprite [SIDE]_4
+      rect:
+        serializedVersion: 2
+        x: 14
+        y: 23
+        width: 24
+        height: 23
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Player Sprite [SIDE]_5
+      rect:
+        serializedVersion: 2
+        x: 69
+        y: 24
+        width: 24
+        height: 23
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Player Sprite [SIDE]_6
+      rect:
+        serializedVersion: 2
+        x: 16
+        y: 14
+        width: 7
+        height: 8
+      alignment: 9
+      pivot: {x: 0.65276283, y: 0.917711}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Player Sprite [SIDE]_7
+      rect:
+        serializedVersion: 2
+        x: 25
+        y: 11
+        width: 10
+        height: 10
+      alignment: 9
+      pivot: {x: 0.19256477, y: 0.9010023}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Player Sprite [SIDE]_8
+      rect:
+        serializedVersion: 2
+        x: 87
+        y: 14
+        width: 7
+        height: 8
+      alignment: 9
+      pivot: {x: 0.4999989, y: 0.8842943}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Player Sprite [SIDE]_9
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 11
+        width: 10
+        height: 10
+      alignment: 9
+      pivot: {x: 0.13909683, y: 0.9010023}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Player Sprite [SIDE]_10
+      rect:
+        serializedVersion: 2
+        x: 9
+        y: 5
+        width: 8
+        height: 7
+      alignment: 9
+      pivot: {x: 0.7172096, y: 0.9010029}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Player Sprite [SIDE]_11
+      rect:
+        serializedVersion: 2
+        x: 12
+        y: 1
+        width: 8
+        height: 4
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Player Sprite [SIDE]_12
+      rect:
+        serializedVersion: 2
+        x: 37
+        y: 3
+        width: 5
+        height: 11
+      alignment: 9
+      pivot: {x: 0.5, y: 0.9010027}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Player Sprite [SIDE]_13
+      rect:
+        serializedVersion: 2
+        x: 80
+        y: 5
+        width: 8
+        height: 7
+      alignment: 9
+      pivot: {x: 0.65037537, y: 0.9010029}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Player Sprite [SIDE]_14
+      rect:
+        serializedVersion: 2
+        x: 83
+        y: 1
+        width: 8
+        height: 4
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Player Sprite [SIDE]_15
+      rect:
+        serializedVersion: 2
+        x: 108
+        y: 3
+        width: 5
+        height: 11
+      alignment: 9
+      pivot: {x: 0.49999848, y: 0.8766995}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Player Sprite [SIDE]_16
+      rect:
+        serializedVersion: 2
+        x: 40
+        y: 1
+        width: 8
+        height: 3
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Player Sprite [SIDE]_17
+      rect:
+        serializedVersion: 2
+        x: 111
+        y: 1
+        width: 8
+        height: 3
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    outline: []
+  spritePackingTag: 
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
