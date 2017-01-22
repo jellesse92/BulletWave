@@ -50,6 +50,7 @@ public class BulletFire : MonoBehaviour {
                 b.damage = dmg;
                 b.speed = speed;
                 b.transform.position = pos;
+                b.deflected = false;
                 bulletList[i].SetActive(true);
                 break;
             }
