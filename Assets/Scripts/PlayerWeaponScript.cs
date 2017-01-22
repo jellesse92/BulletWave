@@ -89,8 +89,22 @@ public class PlayerWeaponScript : MonoBehaviour {
                 checkChargeRelease = false;
                 timeCharged = 0f;
             }
+
+            if(Input.GetAxis("1_RightTrigger") < .5f)
+            {
+                ExecuteAttack();
+                checkChargeRelease = false;
+                timeCharged = 0f;
+            }
         }
 
+        //Controller type
+
+        if(!checkChargeRelease && Input.GetAxis("1_RightTrigger") > .5f)
+        {
+            timeCharged = 0f;
+            checkChargeRelease = true;
+        }
        
         /*
         if (Input.GetKeyDown(KeyCode.Z))
@@ -188,8 +202,7 @@ public class PlayerWeaponScript : MonoBehaviour {
             Debug.Log("TIER 2 CHARGE");
         else if (timeCharged > CHARGE_TIER1)
             Debug.Log("TIER 1 CHARGE");
-        else
-            Debug.Log("DEFLECTOR");
+
     }
 
     void ExecuteAttack()

@@ -31,8 +31,16 @@ public class Player : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		
-	}
+        float x = Input.GetAxis("1_RightJoystickX");
+        float y = Input.GetAxis("1_RightJoystickY");
+
+        if (Mathf.Abs(x) > .3f || Mathf.Abs(y) > .3f)
+        {
+            float angle = Mathf.Atan2(y, x * -1f) * Mathf.Rad2Deg;
+            transform.rotation = Quaternion.AngleAxis(angle + 90f, Vector3.forward);
+        }
+
+    }
 
     void TakeDamage(int damage)
     {
