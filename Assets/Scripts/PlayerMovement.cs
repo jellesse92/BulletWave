@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour {
 
-    public float speed; 
+    public float speed = 5; 
     float playerMoveHorizontal;
     float playerMoveVertical;
     Vector3 position; 
@@ -20,11 +20,14 @@ public class PlayerMovement : MonoBehaviour {
         playerMoveHorizontal = Input.GetAxis("Horizontal") * Time.deltaTime * speed;
         playerMoveVertical = Input.GetAxis("Vertical") * Time.deltaTime * speed;
 
-        position = new Vector3(playerMoveHorizontal, playerMoveVertical, 0); 
-        transform.position += position; 
        
+      
+    }
 
-
+    void FixedUpdate()
+    {
+        position = new Vector3(playerMoveHorizontal, playerMoveVertical, 0);
+        transform.position += position;
 
     }
 }

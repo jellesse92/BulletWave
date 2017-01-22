@@ -63,7 +63,7 @@ public class BulletDeflectorScript : MonoBehaviour {
 
     void ApplyDeflection(GameObject bullet)
     {
-        Debug.Log("DEFLECT! THIS: " + bullet.name);
+        //Debug.Log("DEFLECT! THIS: " + bullet.name);
     }
 
 }
