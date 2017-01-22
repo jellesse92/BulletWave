@@ -11,9 +11,9 @@ public class ApproachEnemy : Enemy {
     {
         inAttackRange = false;
 
-    };
+    }
 
-    Start()
+    void Start()
     {
         anim = GetComponentInParent<Animator>();
     }
