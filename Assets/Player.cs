@@ -10,6 +10,7 @@ public class Player : MonoBehaviour {
     const int BASE_HEALTH = 100;
 
     //Stats
+    public int color = 0;
     int health = BASE_HEALTH;
     int lives = BASE_LIVES;
 
@@ -18,6 +19,7 @@ public class Player : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
         TakeDamage(10);
+
 	}
 	
 	// Update is called once per frame

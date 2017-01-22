@@ -19,7 +19,7 @@ public class PlayerSoundBullet : MonoBehaviour {
         if(collision.tag == "Enemy")
         {
             ApplyDamage(collision.gameObject);
-            collision.GetComponent<Enemy>().TakeDamage(damage);
+            //collision.GetComponent<Enemy>().TakeDamage(damage);
             if (!enemysInRange.Contains(collision.gameObject))
                 enemysInRange.Add(collision.gameObject);
         }
@@ -55,7 +55,7 @@ public class PlayerSoundBullet : MonoBehaviour {
 
     void ApplyDamage(GameObject target)
     {
-        target.GetComponent<Enemy>().TakeDamage(DamageMultiplier(target.GetComponent<Enemy>().projectileWaveType) * damage);
+        //target.GetComponent<Enemy>().TakeDamage(DamageMultiplier(target.GetComponent<Enemy>().projectileWaveType) * damage);
     }
 
     void Deactivate()

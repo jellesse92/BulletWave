@@ -5,7 +5,11 @@ using UnityEngine;
 public class PlayerWeaponScript : MonoBehaviour {
 
     public GameObject bulletDeflector;
+    public Transform bulletList;
     public GameObject[] bulletTypes;
+
+    const int BULLET_GENERATE_AMT = 20;
+    const float BULLET_FORCE = 1000f;
 
     const int MAX_COLOR_RANGE = 3;                              //Maximum amounts of colors to shift through
     const float FREQ_SHIFT_CD = 2.0f;                           //Time shifting is on cooldown
@@ -48,7 +52,10 @@ public class PlayerWeaponScript : MonoBehaviour {
     bool reflectorOnCD = false;
     bool shiftOnCD = false;
 
-    public int currentColor = 0;
+    private void Awake()
+    {
+        GenerateBullets();
+    }
 
     // Use this for initialization
     void Start() {
@@ -56,7 +63,7 @@ public class PlayerWeaponScript : MonoBehaviour {
 
         layermask = (LayerMask.GetMask("Default", "Enemy"));
 
-        currentColor--;
+        GetComponent<Player>().color--;
         FrequencyShift();
         CancelInvoke("ShiftEndCD");
         shiftOnCD = false;
@@ -110,6 +117,23 @@ public class PlayerWeaponScript : MonoBehaviour {
 
     }
 
+    void GenerateBullets()
+    {
+        foreach(GameObject type in bulletTypes)
+        {
+            GameObject typeList = (GameObject)Instantiate(new GameObject());
+            typeList.name = type.name + " List";
+            typeList.transform.parent = bulletList;
+
+            for(int i = 0; i < BULLET_GENERATE_AMT; i++)
+            {
+                GameObject bullet = (GameObject)Instantiate(type);
+                bullet.transform.SetParent(typeList.transform);
+                bullet.SetActive(false);
+            }
+        }
+    }
+
     //REFLECTOR FUNCTIONS
 
     void ActivateReflector()
@@ -137,21 +161,22 @@ public class PlayerWeaponScript : MonoBehaviour {
 
     void ExecuteAttack1()
     {
-        weaponAudio.PlayOneShot(tier1WeaponSound);
-
+        //weaponAudio.PlayOneShot(tier1WeaponSound);
+        FireBullet(0);
 
     }
 
     void ExecuteAttack2()
     {
-        weaponAudio.PlayOneShot(tier2WeaponSound);
-
+        //weaponAudio.PlayOneShot(tier2WeaponSound);
+        FireBullet(1);
 
     }
 
     void ExecuteAttack3()
     {
-        weaponAudio.PlayOneShot(maxWeaponSound);
+        //weaponAudio.PlayOneShot(maxWeaponSound);
+        FireBullet(2);
 
     }
 
@@ -179,6 +204,30 @@ public class PlayerWeaponScript : MonoBehaviour {
             ActivateReflector();
     }
 
+    void FireBullet(int type)
+    {
+        GameObject bullet = GetBullet(type);
+        bullet.GetComponent<PlayerSoundBullet>().Initialize(GetComponent<Player>().color);
+        bullet.transform.position = transform.position;
+        bullet.SetActive(true);
+        bullet.GetComponent<Rigidbody2D>().AddForce(transform.up * BULLET_FORCE);
+    }
+
+    GameObject GetBullet(int type)
+    {
+        GameObject bullet;
+        foreach(Transform child in bulletList.GetChild(type))
+        {
+            if (!child.gameObject.activeSelf)
+            {
+                bullet = child.gameObject;
+                return bullet;
+            }
+        }
+
+        return null;
+    }
+
     //FREQUENCY SHIFT FUNCTIONS
 
     void FrequencyShift()
@@ -186,11 +235,11 @@ public class PlayerWeaponScript : MonoBehaviour {
         if (shiftOnCD)
             return;
 
-        currentColor++;
-        if (currentColor >= MAX_COLOR_RANGE)
-            currentColor = 0;
+        GetComponent<Player>().color++;
+        if (GetComponent<Player>().color >= MAX_COLOR_RANGE)
+            GetComponent<Player>().color = 0;
 
-        switch (currentColor)
+        switch (GetComponent<Player>().color)
         {
             case 0: ApplyShift(0,Color.red); break;
             case 1: ApplyShift(1,Color.blue); break;
