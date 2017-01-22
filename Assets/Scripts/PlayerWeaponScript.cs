@@ -209,6 +209,7 @@ public class PlayerWeaponScript : MonoBehaviour {
         GameObject bullet = GetBullet(type);
         bullet.GetComponent<PlayerSoundBullet>().Initialize(GetComponent<Player>().color);
         bullet.transform.position = transform.position;
+        bullet.transform.rotation = Quaternion.Euler(0f, 0f, transform.rotation.eulerAngles.z);
         bullet.SetActive(true);
         bullet.GetComponent<Rigidbody2D>().AddForce(transform.up * BULLET_FORCE);
     }

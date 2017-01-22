@@ -277,7 +277,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 30
-  lifeTime: 7
+  lifeTime: 2.5
 --- !u!212 &212335621199522632
 SpriteRenderer:
   m_ObjectHideFlags: 1
