@@ -112,6 +112,10 @@ public class Enemy : MonoBehaviour {
 
     public void TakeDamage(int dmg) {
         health -= dmg;
+        if(anim != null)
+        {
+            anim.SetFloat("Health", health);
+        }
     }
     
     protected void Approach() { }

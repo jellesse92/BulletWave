@@ -99,7 +99,7 @@ public class Bullet : MonoBehaviour
         if (!deflected && col.tag == "Player")
         {
             Debug.Log(this.gameObject);
-            col.GetComponent<Player>().TakeDamage(damage, this.gameObject);
+            //col.GetComponent<Player>().TakeDamage(damage, this.gameObject);
         }
     }
 }

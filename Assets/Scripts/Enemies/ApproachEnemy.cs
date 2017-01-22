@@ -4,8 +4,7 @@ using UnityEngine;
 
 
 public class ApproachEnemy : Enemy {
-
-    Animator anim;
+    
     // Use this for initialization
     protected override void EnemySpecificStart()
     {
@@ -21,12 +20,12 @@ public class ApproachEnemy : Enemy {
     {
         bulletType = 0;
         damage = 10;
-        inAttackRange = true;
+        inAttackRange = false;
         target = FindTarget();
     }
-	// Update is called once per frame
-	void FixedUpdate () {
-        
+    // Update is called once per frame
+    void FixedUpdate() {
+
         if (inAttackRange)
         {
             Shoot();
@@ -38,14 +37,14 @@ public class ApproachEnemy : Enemy {
         }
 
         CheckForDeath();
-	}
+    }
     protected new void Retreat()
     {
         if (!isMovementLock)
         {
             var heading = target.transform.position - transform.position;
             var direction = heading / heading.magnitude;
-            transform.Translate(-direction * Time.deltaTime * speed);
+            transform.parent.transform.Translate(-direction * Time.deltaTime * speed);
         }
     }
     protected new void Shoot()
@@ -55,7 +54,7 @@ public class ApproachEnemy : Enemy {
             coolDownTime = Random.Range(.5f, 1.5f);
             var heading = target.transform.position - transform.position;
             var direction = heading / heading.magnitude;
-            BulletList.GetComponent<BulletFire>().Fire(direction, transform.position, Random.Range(2f, 5f), projectileWaveType, bulletType, damage);
+            BulletList.GetComponentInParent<BulletFire>().Fire(direction, transform.position, Random.Range(2f, 5f), projectileWaveType, bulletType, damage);
             isCoolingDown = true;
             isMovementLock = true;
             Invoke("CoolDownShot", coolDownTime);
@@ -65,12 +64,15 @@ public class ApproachEnemy : Enemy {
 
     protected new void Approach()
     {
+        var heading = target.transform.position - transform.position;
+        var direction = heading / heading.magnitude;
         if (!isMovementLock)
         {
-            var heading = target.transform.position - transform.position;
-            var direction = heading / heading.magnitude;
-            transform.Translate(direction * Time.deltaTime * speed);
+            transform.parent.transform.Translate(direction * Time.deltaTime * speed);
         }
+        float angleFromVector = (float)Mathf.Atan2(direction.y, direction.x);
+        angleFromVector = angleFromVector < 0 ? 6.3f + angleFromVector : angleFromVector;
+        anim.SetFloat("radDirection", angleFromVector);
     }
     private void CoolDownShot()
     {
