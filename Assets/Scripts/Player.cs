@@ -48,7 +48,7 @@ public class Player : MonoBehaviour {
 
     }
 
-    void TakeDamage(int damage, GameObject bullet = null)
+    public void TakeDamage(int damage, GameObject bullet = null)
     {
         if(bullet != null)
         {
