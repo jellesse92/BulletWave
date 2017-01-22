@@ -45,8 +45,6 @@ public class PlayerJoin : MonoBehaviour {
 
         controlAssignment[playersJoined] = index;
         playersJoined++;
-        Debug.Log("Joystick: " + index);
-
         Debug.Log("Player Entered:" + playersJoined);
     }
 

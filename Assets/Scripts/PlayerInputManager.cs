@@ -11,6 +11,9 @@ public class PlayerInputManager : MonoBehaviour {
         inputManager = GameObject.FindGameObjectWithTag("Player Join").GetComponent<PlayerJoin>();
 
         transform.GetChild(0).GetComponent<PlayerInput>().SetInput(inputManager.GetPlayerInputs(0));
+        if (!transform.GetChild(0).gameObject.activeSelf)
+            transform.GetChild(0).gameObject.SetActive(true);
+
         transform.GetChild(1).GetComponent<PlayerInput>().SetInput(inputManager.GetPlayerInputs(1));
         inputManager.StopUpdate();
 

@@ -73,7 +73,7 @@ public class Spawner : MonoBehaviour {
             {
                 ApproachEnemy b = aenemyList[i].GetComponentInChildren<ApproachEnemy>();
                 aenemyList[i].transform.position = transform.position;
-                b.attackRadius = Random.Range(7f, 13f);
+                aenemyList[i].GetComponentInChildren<CircleCollider2D>().radius = Random.Range(3f, 6f);
                 b.projectileWaveType = (int)Random.Range(0.0f, 3f);
                 if (b.projectileWaveType == 0)
                 {
