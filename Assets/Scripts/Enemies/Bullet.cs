@@ -94,4 +94,11 @@ public class Bullet : MonoBehaviour
         deflected = true;
     }
 
+    public void OnTriggerEnter2D(Collider2D col)
+    {
+        if (!deflected && col.tag == "Player")
+        {
+            col.GetComponent<Player>().TakeDamage(damage, gameObject);
+        }
+    }
 }
