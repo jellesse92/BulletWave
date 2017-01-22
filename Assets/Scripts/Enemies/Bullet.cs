@@ -11,13 +11,14 @@ public class Bullet : MonoBehaviour
     public int damage;
     public int type = 1; // 0 = fireball, 1 = bullet
     public int color; // 0 = r, 1 = g, 2 = b
-
-
+    public int counter = 0;
+    public float startTime;
 
     // Use this for initialization
     void Start()
     {
         deflected = false;
+        startTime = Time.time;
     }
 
     // Update is called once per frame
@@ -25,8 +26,10 @@ public class Bullet : MonoBehaviour
     {
         if (type == 0)
         {
-            transform.Translate(new Vector2 ((direction.x * Time.deltaTime * speed * Mathf.Sin(Time.time)), (direction.y * Time.deltaTime * speed * Mathf.Cos(Time.time))));
-
+            // this code snippet makes butterflies. not sure why.
+            //transform.Rotate(new Vector2 (Mathf.Sin((Time.time - startTime + 1.3f) * 1) * 10, 0));
+            transform.Translate(new Vector2 (0, Mathf.Sin(Time.time*speed)*0.05f));
+            transform.Translate(direction * Time.deltaTime * speed);
         }
         if (type == 1)
         {
