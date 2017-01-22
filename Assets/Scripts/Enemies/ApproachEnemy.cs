@@ -24,10 +24,7 @@ public class ApproachEnemy : Enemy {
         if (distance <= attackRadius)
         {
             Shoot();
-            if (distance < attackRadius)
-            {
-                Retreat();
-            }
+
         }
         else {
             Approach();

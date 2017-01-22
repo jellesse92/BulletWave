@@ -14,6 +14,7 @@ public class BulletFire : MonoBehaviour {
         for(int i = 0; i < ammo; i++)
         {
             GameObject b = (GameObject)Instantiate(bullet);
+            b.transform.parent = transform;
             b.SetActive(false);
             bulletList.Add(b);
         }
