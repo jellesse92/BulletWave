@@ -8,6 +8,8 @@ public class PlayerWeaponScript : MonoBehaviour {
     public Transform bulletList;
     public GameObject[] bulletTypes;
 
+    const float PLAYER_SPEED = 5f;
+
     const int BULLET_GENERATE_AMT = 20;
     const float BULLET_FORCE = 220f;
 
@@ -56,8 +58,7 @@ public class PlayerWeaponScript : MonoBehaviour {
 
     private void Awake()
     {
-        GenerateBullets();
-        
+        GenerateBullets();  
     }
 
     // Use this for initialization
@@ -86,7 +87,14 @@ public class PlayerWeaponScript : MonoBehaviour {
             return;
         }
 
-        if(input.GetJoystick() > 0)
+        Vector3 position;
+
+        position = new Vector3(input.GetKeyPress().horizontalAxisValue * Time.deltaTime * PLAYER_SPEED, 
+            input.GetKeyPress().verticalAxisValue * Time.deltaTime * PLAYER_SPEED, 0);
+        transform.position += position;
+
+
+        if (input.GetJoystick() > 0)
             if (Mathf.Abs(input.GetKeyPress().rightHorizontalAxisValue) > .3f || Mathf.Abs(input.GetKeyPress().rightVerticalAxisValue) > .3f)
             {
                 float angle = Mathf.Atan2(input.GetKeyPress().rightVerticalAxisValue, input.GetKeyPress().rightHorizontalAxisValue * -1f) * Mathf.Rad2Deg;

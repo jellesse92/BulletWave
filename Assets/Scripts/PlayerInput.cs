@@ -48,7 +48,7 @@ public class PlayerInput : MonoBehaviour {
         float y = (Mathf.Abs(Input.GetAxis(inputConfig.verticalAxisName)) > 0.06) ? Input.GetAxis(inputConfig.verticalAxisName) : 0f;
 
         keysPressed.horizontalAxisValue = x;
-        keysPressed.verticalAxisValue = y;
+        keysPressed.verticalAxisValue = y *-1f;
 
         x = (Mathf.Abs(Input.GetAxis(inputConfig.rightHorizontalAxisName)) > 0.3) ? Input.GetAxis(inputConfig.rightHorizontalAxisName) : 0f;
         y = (Mathf.Abs(Input.GetAxis(inputConfig.rightVerticalAxisName)) > 0.3) ? Input.GetAxis(inputConfig.rightVerticalAxisName) : 0f;
@@ -84,9 +84,12 @@ public class PlayerInput : MonoBehaviour {
     public void SetInput(int index)
     {
 
-        Debug.Log("Setting: " + index.ToString());
         if (index <= 0)
+        {
+            //gameObject.SetActive(false);
             return;
+        }
+
 
         string nStr = index.ToString();
         joystickNum = index;

@@ -33,6 +33,8 @@ public class Player : MonoBehaviour {
     void Test()
     {
         Debug.Log("running test");
+        if (!gameObject.activeSelf)
+            return;
         Death();
         //TakeDamage(10);
     }
