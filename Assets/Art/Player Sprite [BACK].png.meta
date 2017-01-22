@@ -1,9 +1,23 @@
 fileFormatVersion: 2
 guid: 838f37d20fe325849809bf68bbafc795
-timeCreated: 1485064297
+timeCreated: 1485110068
 licenseType: Free
 TextureImporter:
-  fileIDToRecycleName: {}
+  fileIDToRecycleName:
+    21300000: Player Sprite [BACK]_0
+    21300002: Player Sprite [BACK]_1
+    21300004: Player Sprite [BACK]_2
+    21300006: Player Sprite [BACK]_3
+    21300008: Player Sprite [BACK]_4
+    21300010: Player Sprite [BACK]_5
+    21300012: Player Sprite [BACK]_6
+    21300014: Player Sprite [BACK]_7
+    21300016: Player Sprite [BACK]_8
+    21300018: Player Sprite [BACK]_9
+    21300020: Player Sprite [BACK]_10
+    21300022: Player Sprite [BACK]_11
+    21300024: Player Sprite [BACK]_12
+    21300026: Player Sprite [BACK]_13
   serializedVersion: 4
   mipmaps:
     mipMapMode: 0
@@ -34,7 +48,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -58,9 +72,199 @@ TextureImporter:
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
+  - buildTarget: Standalone
+    maxTextureSize: 2048
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: Player Sprite [BACK]_0
+      rect:
+        serializedVersion: 2
+        x: 8
+        y: 40
+        width: 15
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Player Sprite [BACK]_1
+      rect:
+        serializedVersion: 2
+        x: 28
+        y: 26
+        width: 24
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Player Sprite [BACK]_2
+      rect:
+        serializedVersion: 2
+        x: 66
+        y: 37
+        width: 13
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Player Sprite [BACK]_3
+      rect:
+        serializedVersion: 2
+        x: 90
+        y: 26
+        width: 24
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Player Sprite [BACK]_4
+      rect:
+        serializedVersion: 2
+        x: 33
+        y: 16
+        width: 5
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Player Sprite [BACK]_5
+      rect:
+        serializedVersion: 2
+        x: 41
+        y: 17
+        width: 5
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Player Sprite [BACK]_6
+      rect:
+        serializedVersion: 2
+        x: 54
+        y: 4
+        width: 13
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Player Sprite [BACK]_7
+      rect:
+        serializedVersion: 2
+        x: 71
+        y: 17
+        width: 15
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Player Sprite [BACK]_8
+      rect:
+        serializedVersion: 2
+        x: 95
+        y: 16
+        width: 5
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Player Sprite [BACK]_9
+      rect:
+        serializedVersion: 2
+        x: 103
+        y: 17
+        width: 5
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Player Sprite [BACK]_10
+      rect:
+        serializedVersion: 2
+        x: 33
+        y: 3
+        width: 5
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Player Sprite [BACK]_11
+      rect:
+        serializedVersion: 2
+        x: 41
+        y: 7
+        width: 5
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Player Sprite [BACK]_12
+      rect:
+        serializedVersion: 2
+        x: 95
+        y: 3
+        width: 5
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Player Sprite [BACK]_13
+      rect:
+        serializedVersion: 2
+        x: 103
+        y: 7
+        width: 5
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
     outline: []
   spritePackingTag: 
   userData: 
