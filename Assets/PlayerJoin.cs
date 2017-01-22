@@ -16,14 +16,14 @@ public class PlayerJoin : MonoBehaviour {
     {
         for(int i = 1; i < 12; i++)
         {
-            if (Input.GetAxis(i.ToString() + "_RightTrigger") <-.5f)
+            if (Input.GetAxis(i.ToString() + "_RightTrigger") > .5f)
                 JoinJoystick(i);
+            
         }
     }
 
     void JoinJoystick(int index)
     {
-        Debug.Log("Joystick " + index.ToString());
         if (playersJoined >= 2)
             return;
 
