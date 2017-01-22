@@ -47,22 +47,24 @@ public class DialogueController : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 
-            if (Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+
+            Debug.Log(currentLine);
+            if (currentLine >= 4)
             {
-
-                Debug.Log(currentLine);
-                if (currentLine >= 4)
-                {
-                    Time.timeScale = 1.0f;
-                    anim.SetTrigger("none");
-                    this.gameObject.SetActive(false);
-                    return;
-                }
-
-                if (introPlay)
-                    IntroDialogue();
-                currentLine++;
+                Time.timeScale = 1.0f;
+                anim.SetTrigger("none");
+                this.gameObject.SetActive(false);
+                return;
             }
+
+            if (introPlay)
+                IntroDialogue();
+            else
+                PlayDeathDialogue();
+                currentLine++;
+        }
 
 	}
 
@@ -115,6 +117,7 @@ public class DialogueController : MonoBehaviour {
     public void PlayDeathDialogue()
     {
         currentDialogue = 1;
+        currentLine = 0;
         proceedOnCD = false;
         this.enabled = true;
     }

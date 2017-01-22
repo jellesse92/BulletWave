@@ -12,6 +12,8 @@ public class PlayerWeaponScript : MonoBehaviour {
 
     const int BULLET_GENERATE_AMT = 20;
     const float BULLET_FORCE = 220f;
+    const float BULLET_FORCE2 = 290f;
+    const float BULLET_FORCEMAX = 440f;
 
     const int MAX_COLOR_RANGE = 3;                              //Maximum amounts of colors to shift through
     const float FREQ_SHIFT_CD = 2.0f;                           //Time shifting is on cooldown
@@ -208,7 +210,21 @@ public class PlayerWeaponScript : MonoBehaviour {
         bullet.transform.position = transform.position;
         bullet.transform.rotation = Quaternion.Euler(0f, 0f, transform.rotation.eulerAngles.z);
 
-        bullet.GetComponent<Rigidbody2D>().AddForce(transform.up * BULLET_FORCE);
+
+        switch (type)
+        {
+            case 0: bullet.GetComponent<Rigidbody2D>().AddForce(transform.up * BULLET_FORCE);
+                break;
+            case 1: bullet.GetComponent<Rigidbody2D>().AddForce(transform.up * BULLET_FORCE2);
+                break;
+            case 2:
+                bullet.GetComponent<Rigidbody2D>().AddForce(transform.up * BULLET_FORCEMAX);
+                break;
+            default:
+                bullet.GetComponent<Rigidbody2D>().AddForce(transform.up * BULLET_FORCE);
+                break;
+        }
+
     }
 
     GameObject GetBullet(int type)
