@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class ApproachEnemy : Enemy {
 
+    Animator anim;
     // Use this for initialization
     protected override void EnemySpecificStart()
     {
@@ -12,6 +13,10 @@ public class ApproachEnemy : Enemy {
 
     }
 
+    void Start()
+    {
+        anim = GetComponentInParent<Animator>();
+    }
     void Awake()
     {
         bulletType = 0;

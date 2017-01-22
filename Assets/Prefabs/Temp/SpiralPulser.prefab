@@ -184,18 +184,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isFacingRight: 0
-  speed: 1
+  speed: 0.1
   attackRadius: 10
-  movementCoolDownTime: 0
+  movementCoolDownTime: 1
   inAggroRadius: 0
   damage: 0
   health: 0
   ammo: 10
   projectileWaveType: 0
-  bulletType: 0
+  bulletType: 1
   BulletList: {fileID: 1903281166387924}
+  deathParticle: {fileID: 1652741322170450, guid: 7c3b6e079a67dc443b931edad99a6b72,
+    type: 2}
   isLeader: 1
   iAmFollowing: {fileID: 0}
+  StopAllMovement: 0
   idleSpeed: 0.9
 --- !u!212 &212796493821995506
 SpriteRenderer:

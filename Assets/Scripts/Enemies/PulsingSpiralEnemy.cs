@@ -6,6 +6,7 @@ public class PulsingSpiralEnemy : Enemy {
 
     public bool isLeader;
     public GameObject iAmFollowing;
+    public bool StopAllMovement = false;
 
     public float idleSpeed = .9f;
     private float idleCircleSize = .15f;
@@ -25,17 +26,30 @@ public class PulsingSpiralEnemy : Enemy {
 	// Update is called once per frame
 	void FixedUpdate () {
         float distance = Vector2.Distance(target.transform.position, transform.position);
-        if (!inAggroRadius && !inAttackRange)
+        if (isMovementLock && !StopAllMovement)
         {
-            Approach();
-        } else if (inAggroRadius && !inAttackRange)
+            Retreat();
+        } else if (!inAggroRadius && !inAttackRange && !StopAllMovement)
+        {
+            if (isLeader)
+            {
+                Approach();
+            } else if(iAmFollowing.activeSelf == false)
+            {
+                isLeader = true;
+                Approach();
+            } else
+            {
+                IdleMovement();
+            }
+        } else if (inAggroRadius && !inAttackRange && !isMovementLock && !StopAllMovement)
         {
             Orbit();
-            //Approach();
-        } else if (inAttackRange)
+           
+        } else if (inAttackRange && !isMovementLock && !StopAllMovement)
         {
             Shoot();
-            Orbit();
+            Retreat();
         }
 	}
 
@@ -68,33 +82,49 @@ public class PulsingSpiralEnemy : Enemy {
     {
         if (!isMovementLock)
         {
-            transform.position = Vector2.MoveTowards(transform.position, target.transform.position, .01f);
+            transform.position = Vector2.MoveTowards(transform.position, target.transform.position, speed/ 3);
             Orbit();
         }
     }
 
+    protected new void Retreat()
+    {
+        var heading = target.transform.position - transform.position;
+        var direction = heading / heading.magnitude;
+        transform.position = Vector2.MoveTowards(transform.position, target.transform.position, -speed);
+    }
     private void CoolDownShot()
     {
         isCoolingDown = false;
     }
     private void CoolDownWalk()
     {
-        isMovementLock = false;
+        StopAllMovement = false;
+        Invoke("StopWalkCooldown", movementCoolDownTime);
     }
 
+    private void StopAllMoving()
+    {
+        StopAllMovement = true;
+        Invoke("CoolDownWalk", 1f);
+    }
+    private void StopWalkCooldown()
+    {
+        isMovementLock = false;
+    }
     protected new void Shoot()
     {
         if (!isCoolingDown)
         {
             coolDownTime = Random.Range(.5f, 1.5f);
-            movementCoolDownTime = 3;
             var heading = target.transform.position - transform.position;
             var direction = heading / heading.magnitude;
             BulletList.GetComponent<BulletFire>().Fire(direction, transform.position, Random.Range(2f, 5f), projectileWaveType, bulletType, damage);
             isCoolingDown = true;
             isMovementLock = true;
+            float stopTime = 5f;
             Invoke("CoolDownShot", coolDownTime);
-            Invoke("CoolDownWalk", movementCoolDownTime);
+            StopAllMoving();
         }
     }
 }

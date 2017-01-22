@@ -73,7 +73,7 @@ public class Spawner2 : MonoBehaviour {
             {
                 SpiralEnemy b = senemyList[i].GetComponentInChildren<SpiralEnemy>();
                 senemyList[i].transform.position = transform.position;
-                b.attackRadius = Random.Range(7f, 13f);
+                senemyList[i].GetComponentInChildren<CircleCollider2D>().radius = Random.Range(3.5f, 7f);
                 b.projectileWaveType = (int)Random.Range(0.0f, 3f);
                 if (b.projectileWaveType == 0)
                 {
