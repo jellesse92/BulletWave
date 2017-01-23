@@ -7,6 +7,10 @@ public class SpiralEnemy : Enemy {
     public float idleSpeed = .0001f;
     private float idleCircleSize = .05f;
 
+    void Start()
+    {
+        anim = GetComponentInParent<Animator>();
+    }
     // Use this for initialization
     protected override void EnemySpecificStart()
     {
@@ -47,20 +51,30 @@ public class SpiralEnemy : Enemy {
     }
     protected new void Approach()
     {
+        var heading = target.transform.position - transform.position;
+        var direction = heading / heading.magnitude;
         if (!isMovementLock)
         {
             transform.position = Vector2.MoveTowards(transform.position, target.transform.position, speed / 3);
             Orbit();
         }
+        float angleFromVector = (float)Mathf.Atan2(direction.y, direction.x);
+        angleFromVector = angleFromVector < 0 ? 6.3f + angleFromVector : angleFromVector;
+        anim.SetFloat("radDirection", angleFromVector);
     }
 
     protected new void Retreat()
     {
+        var heading = target.transform.position - transform.position;
+        var direction = heading / heading.magnitude;
         if (!isMovementLock)
         {
             transform.position = Vector2.MoveTowards(transform.position, target.transform.position, -speed / 30);
             Orbit();
         }
+        float angleFromVector = (float)Mathf.Atan2(direction.y, direction.x);
+        angleFromVector = angleFromVector < 0 ? 6.3f + angleFromVector : angleFromVector;
+        anim.SetFloat("radDirection", angleFromVector);
     }
 
     protected void Orbit()
@@ -88,7 +102,7 @@ public class SpiralEnemy : Enemy {
             coolDownTime = Random.Range(.5f, 1.5f);
             var heading = target.transform.position - transform.position;
             var direction = heading / heading.magnitude;
-            BulletList.GetComponent<BulletFire>().Fire(direction, transform.position, Random.Range(2f, 5f), projectileWaveType, bulletType, damage);
+            BulletList.GetComponentInParent<BulletFire>().Fire(direction, transform.position, Random.Range(2f, 5f), projectileWaveType, bulletType, damage);
             isCoolingDown = true;
             isMovementLock = true;
             Invoke("CoolDownShot", coolDownTime);

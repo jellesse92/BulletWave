@@ -40,12 +40,15 @@ public class ApproachEnemy : Enemy {
     }
     protected new void Retreat()
     {
+        var heading = target.transform.position - transform.position;
+        var direction = heading / heading.magnitude;
         if (!isMovementLock)
         {
-            var heading = target.transform.position - transform.position;
-            var direction = heading / heading.magnitude;
             transform.parent.transform.Translate(-direction * Time.deltaTime * speed);
         }
+        float angleFromVector = (float)Mathf.Atan2(direction.y, direction.x);
+        angleFromVector = angleFromVector < 0 ? 6.3f + angleFromVector : angleFromVector;
+        anim.SetFloat("radDirection", angleFromVector);
     }
     protected new void Shoot()
     {

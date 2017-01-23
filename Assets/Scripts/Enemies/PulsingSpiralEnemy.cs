@@ -11,7 +11,10 @@ public class PulsingSpiralEnemy : Enemy {
     public float idleSpeed = .9f;
     private float idleCircleSize = .15f;
 
-
+    void Start()
+    {
+        anim = GetComponentInParent<Animator>();
+    }
     // Use this for initialization
     protected override void EnemySpecificStart()
     {
@@ -55,16 +58,20 @@ public class PulsingSpiralEnemy : Enemy {
 
     protected new void IdleMovement()
     {
-        if(isLeader)
+        var heading = iAmFollowing.transform.position - transform.position;
+        var direction = heading / heading.magnitude;
+        if (isLeader)
         {
             Orbit();
         } else
         {
-            var heading = iAmFollowing.transform.position - transform.position;
-            var direction = heading / heading.magnitude;
+           
             transform.Translate(direction * Time.deltaTime * (speed + 1));
 
         }
+        float angleFromVector = (float)Mathf.Atan2(direction.y, direction.x);
+        angleFromVector = angleFromVector < 0 ? 6.3f + angleFromVector : angleFromVector;
+        anim.SetFloat("radDirection", angleFromVector);
     }
 
 
@@ -80,18 +87,27 @@ public class PulsingSpiralEnemy : Enemy {
 
     protected new void Approach()
     {
+        var heading = target.transform.position - transform.position;
+        var direction = heading / heading.magnitude;
         if (!isMovementLock)
         {
             transform.position = Vector2.MoveTowards(transform.position, target.transform.position, speed/ 3);
             Orbit();
         }
+        float angleFromVector = (float)Mathf.Atan2(direction.y, direction.x);
+        angleFromVector = angleFromVector < 0 ? 6.3f + angleFromVector : angleFromVector;
+        anim.SetFloat("radDirection", angleFromVector);
     }
 
     protected new void Retreat()
     {
+
         var heading = target.transform.position - transform.position;
         var direction = heading / heading.magnitude;
         transform.position = Vector2.MoveTowards(transform.position, target.transform.position, -speed);
+        float angleFromVector = (float)Mathf.Atan2(direction.y, direction.x);
+        angleFromVector = angleFromVector < 0 ? 6.3f + angleFromVector : angleFromVector;
+        anim.SetFloat("radDirection", angleFromVector);
     }
     private void CoolDownShot()
     {
@@ -119,7 +135,7 @@ public class PulsingSpiralEnemy : Enemy {
             coolDownTime = Random.Range(.5f, 1.5f);
             var heading = target.transform.position - transform.position;
             var direction = heading / heading.magnitude;
-            BulletList.GetComponent<BulletFire>().Fire(direction, transform.position, Random.Range(2f, 5f), projectileWaveType, bulletType, damage);
+            BulletList.GetComponentInParent<BulletFire>().Fire(direction, transform.position, Random.Range(2f, 5f), projectileWaveType, bulletType, damage);
             isCoolingDown = true;
             isMovementLock = true;
             float stopTime = 5f;
