@@ -67,7 +67,7 @@ public class SpiralEnemy : Enemy {
     {
         var heading = target.transform.position - transform.position;
         var direction = heading / heading.magnitude;
-        transform.position = Vector2.MoveTowards(transform.position, target.transform.position, -speed/1000);
+        transform.position = Vector2.MoveTowards(transform.position, target.transform.position, -speed/10000);
         float angleFromVector = (float)Mathf.Atan2(direction.y, direction.x);
         angleFromVector = angleFromVector < 0 ? 6.3f + angleFromVector : angleFromVector;
         if (anim != null)

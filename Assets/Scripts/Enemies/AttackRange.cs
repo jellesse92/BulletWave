@@ -8,15 +8,15 @@ public class AttackRange : MonoBehaviour {
     {
         if (col.tag == "Player")
         {
-
-            transform.parent.GetComponent<Enemy>().inAggroRadius = true;
+           
+            transform.parent.GetComponentInChildren<Enemy>().inAttackRange = true;
         }
     }
     void OnTriggerExit2D(Collider2D col)
     {
         if (col.tag == "Player")
         {
-            transform.parent.GetComponent<Enemy>().inAggroRadius = false;
+            transform.parent.GetComponentInChildren<Enemy>().inAttackRange = false;
         }
     }
 }

@@ -22,7 +22,7 @@ public class Enemy : MonoBehaviour {
 
     protected Animator anim;
     protected bool isDead;
-    protected bool inAttackRange;
+    public bool inAttackRange;
     protected bool isMovementLock;
     protected bool isCoolingDown;
 
@@ -136,7 +136,7 @@ public class Enemy : MonoBehaviour {
                 deathParticle.GetComponent<ParticleSystem>().Play();
             }
             isDead = true;
-            gameObject.SetActive(false);
+            gameObject.transform.parent.gameObject.SetActive(false);
         }
     }
 

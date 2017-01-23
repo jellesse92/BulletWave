@@ -75,6 +75,24 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!1 &1538112782923552
+GameObject:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 4719741082247418}
+  - component: {fileID: 58894970395033618}
+  - component: {fileID: 50810004102898488}
+  - component: {fileID: 114162901487281498}
+  m_Layer: 0
+  m_Name: AttackRange
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
 --- !u!1 &1768260252297356
 GameObject:
   m_ObjectHideFlags: 1
@@ -101,8 +119,8 @@ GameObject:
   - component: {fileID: 4147760763173524}
   - component: {fileID: 212425316757242058}
   - component: {fileID: 114422012393987068}
-  - component: {fileID: 58268663807949078}
   - component: {fileID: 50020349881428478}
+  - component: {fileID: 61763687951031774}
   m_Layer: 0
   m_Name: Robo Sprites_5
   m_TagString: Enemy
@@ -167,6 +185,7 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: -1, y: 1, z: 1}
   m_Children:
+  - {fileID: 4719741082247418}
   - {fileID: 4147760763173524}
   m_Father: {fileID: 4231330284759630}
   m_RootOrder: 0
@@ -186,7 +205,7 @@ Transform:
   - {fileID: 4487612993368460}
   - {fileID: 4955952254370882}
   m_Father: {fileID: 4079862904196924}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4197743921383038
 Transform:
@@ -208,7 +227,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1984420806761488}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -25.47074, y: 1.091754, z: 0}
+  m_LocalPosition: {x: -10.752276, y: 4.4585285, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4079862904196924}
@@ -268,6 +287,19 @@ Transform:
   m_Father: {fileID: 4955952254370882}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &4719741082247418
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1538112782923552}
+  m_LocalRotation: {x: -0, y: 0, z: -0.47869545, w: 0.87798107}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: -1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4079862904196924}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4955952254370882
 Transform:
   m_ObjectHideFlags: 1
@@ -302,8 +334,42 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!58 &58268663807949078
+--- !u!50 &50810004102898488
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1538112782923552}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
+--- !u!58 &58894970395033618
 CircleCollider2D:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1538112782923552}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 4
+--- !u!61 &61763687951031774
+BoxCollider2D:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
@@ -313,9 +379,9 @@ CircleCollider2D:
   m_Material: {fileID: 0}
   m_IsTrigger: 1
   m_UsedByEffector: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0.305, y: 0.3}
   serializedVersion: 2
-  m_Radius: 4
+  m_Size: {x: 0.61, y: 0.6}
 --- !u!95 &95935986188887350
 Animator:
   serializedVersion: 3
@@ -346,6 +412,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bullet: {fileID: 1196672362626360, guid: 18df579fef9b17f4199aa64c25497654, type: 2}
   ammo: 10
+--- !u!114 &114162901487281498
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1538112782923552}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b2b82f728a347ac43a68aa6348078061, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114422012393987068
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -370,6 +447,7 @@ MonoBehaviour:
   BulletList: {fileID: 1368282611868608}
   deathParticle: {fileID: 1652741322170450, guid: 7c3b6e079a67dc443b931edad99a6b72,
     type: 2}
+  inAttackRange: 0
   target: {fileID: 0}
 --- !u!212 &212217839457745986
 SpriteRenderer:
