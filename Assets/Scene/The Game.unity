@@ -1848,6 +1848,29 @@ Prefab:
       propertyPath: isFacingRight
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 212009617659245924, guid: 414760279df92864ea1bad88100cbee7,
+        type: 2}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300002, guid: c15d5f230c6af8e42bbac2290561e0e5,
+        type: 3}
+    - target: {fileID: 4962400484706766, guid: 414760279df92864ea1bad88100cbee7, type: 2}
+      propertyPath: m_LocalScale.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4962400484706766, guid: 414760279df92864ea1bad88100cbee7, type: 2}
+      propertyPath: m_LocalScale.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4962400484706766, guid: 414760279df92864ea1bad88100cbee7, type: 2}
+      propertyPath: m_LocalScale.z
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 58689195041735716, guid: 414760279df92864ea1bad88100cbee7,
+        type: 2}
+      propertyPath: m_Radius
+      value: 1.55
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 414760279df92864ea1bad88100cbee7, type: 2}
   m_IsPrefabParent: 0
@@ -1925,6 +1948,25 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1639235799}
+--- !u!1 &1645013849 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1536125673376954, guid: 414760279df92864ea1bad88100cbee7,
+    type: 2}
+  m_PrefabInternal: {fileID: 2033155093}
+--- !u!61 &1645013850
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1645013849}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Size: {x: 0.26, y: 0.4}
 --- !u!4 &1748013619 stripped
 Transform:
   m_PrefabParentObject: {fileID: 4579278525889824, guid: 414760279df92864ea1bad88100cbee7,
@@ -2295,6 +2337,34 @@ Prefab:
       propertyPath: playerSpecialEffects
       value: 
       objectReference: {fileID: 622706033}
-    m_RemovedComponents: []
+    - target: {fileID: 4289228410711064, guid: 414760279df92864ea1bad88100cbee7, type: 2}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 212009617659245924, guid: 414760279df92864ea1bad88100cbee7,
+        type: 2}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: c15d5f230c6af8e42bbac2290561e0e5,
+        type: 3}
+    - target: {fileID: 4962400484706766, guid: 414760279df92864ea1bad88100cbee7, type: 2}
+      propertyPath: m_LocalScale.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4962400484706766, guid: 414760279df92864ea1bad88100cbee7, type: 2}
+      propertyPath: m_LocalScale.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 58689195041735716, guid: 414760279df92864ea1bad88100cbee7,
+        type: 2}
+      propertyPath: m_Radius
+      value: 1.55
+      objectReference: {fileID: 0}
+    - target: {fileID: 4962400484706766, guid: 414760279df92864ea1bad88100cbee7, type: 2}
+      propertyPath: m_LocalScale.z
+      value: 1
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 61981209291922268, guid: 414760279df92864ea1bad88100cbee7, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: 414760279df92864ea1bad88100cbee7, type: 2}
   m_IsPrefabParent: 0
