@@ -52,7 +52,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a5b1c1f215b887b43950378c143b16d8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  senemy: {fileID: 1384446579674610, guid: 90fe1005a8692714aad137c16508372d, type: 2}
+  senemy: {fileID: 1716553739523594, guid: 4199b2fb6da15d54cb06243990e28d2f, type: 2}
   senemyNum: 10
   senemyList: []
   isCoolingDown: 0

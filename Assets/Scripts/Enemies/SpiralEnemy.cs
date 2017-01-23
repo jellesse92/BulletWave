@@ -37,7 +37,6 @@ public class SpiralEnemy : Enemy {
         } else if (!inAttackRange && inAggroRadius)
         {
             Approach();
-            Orbit();
         } if (inAttackRange)
         {
             Shoot();
@@ -68,15 +67,12 @@ public class SpiralEnemy : Enemy {
     {
         var heading = target.transform.position - transform.position;
         var direction = heading / heading.magnitude;
-        if (!isMovementLock)
-        {
-            transform.position = Vector2.MoveTowards(transform.position, target.transform.position, -speed / 30);
-            Orbit();
-        }
+        transform.position = Vector2.MoveTowards(transform.position, target.transform.position, -speed/1000);
         float angleFromVector = (float)Mathf.Atan2(direction.y, direction.x);
         angleFromVector = angleFromVector < 0 ? 6.3f + angleFromVector : angleFromVector;
         if (anim != null)
             anim.SetFloat("radDirection", angleFromVector);
+        Orbit();
     }
 
     protected void Orbit()
