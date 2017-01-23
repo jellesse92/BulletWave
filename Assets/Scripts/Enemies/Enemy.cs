@@ -27,7 +27,7 @@ public class Enemy : MonoBehaviour {
     protected bool isCoolingDown;
 
     protected float coolDownTime;
-    protected GameObject target;
+    public GameObject target;
     protected GameObject[] potentialTargets;
 
     void Start()

@@ -1034,7 +1034,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1174643924133566}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 6.3489914, y: -2.241872, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4911463818284742}
@@ -1355,7 +1355,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1213515696079540}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -3.066338, y: 5.822643, z: 0}
+  m_LocalPosition: {x: -8.298372, y: 0.99087584, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4013061082635684}
@@ -2280,6 +2280,7 @@ MonoBehaviour:
   BulletList: {fileID: 1249506746841012}
   deathParticle: {fileID: 1652741322170450, guid: 7c3b6e079a67dc443b931edad99a6b72,
     type: 2}
+  target: {fileID: 0}
   idleSpeed: 0.02769997
 --- !u!114 &114222023703494756
 MonoBehaviour:

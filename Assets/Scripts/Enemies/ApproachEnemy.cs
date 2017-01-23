@@ -48,7 +48,8 @@ public class ApproachEnemy : Enemy {
         }
         float angleFromVector = (float)Mathf.Atan2(direction.y, direction.x);
         angleFromVector = angleFromVector < 0 ? 6.3f + angleFromVector : angleFromVector;
-        anim.SetFloat("radDirection", angleFromVector);
+        if (anim != null)
+            anim.SetFloat("radDirection", angleFromVector);
     }
     protected new void Shoot()
     {
@@ -75,7 +76,8 @@ public class ApproachEnemy : Enemy {
         }
         float angleFromVector = (float)Mathf.Atan2(direction.y, direction.x);
         angleFromVector = angleFromVector < 0 ? 6.3f + angleFromVector : angleFromVector;
-        anim.SetFloat("radDirection", angleFromVector);
+        if(anim != null)
+            anim.SetFloat("radDirection", angleFromVector);
     }
     private void CoolDownShot()
     {

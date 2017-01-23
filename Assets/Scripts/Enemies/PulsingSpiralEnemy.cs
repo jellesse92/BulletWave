@@ -18,6 +18,7 @@ public class PulsingSpiralEnemy : Enemy {
     // Use this for initialization
     protected override void EnemySpecificStart()
     {
+        StopAllMovement = false;
         inAttackRange = false;
         isMovementLock = false;
 	}
@@ -47,6 +48,7 @@ public class PulsingSpiralEnemy : Enemy {
             }
         } else if (inAggroRadius && !inAttackRange && !isMovementLock && !StopAllMovement)
         {
+            print("who?");
             Orbit();
            
         } else if (inAttackRange && !isMovementLock && !StopAllMovement)
@@ -96,7 +98,8 @@ public class PulsingSpiralEnemy : Enemy {
         }
         float angleFromVector = (float)Mathf.Atan2(direction.y, direction.x);
         angleFromVector = angleFromVector < 0 ? 6.3f + angleFromVector : angleFromVector;
-        anim.SetFloat("radDirection", angleFromVector);
+        if (anim != null)
+            anim.SetFloat("radDirection", angleFromVector);
     }
 
     protected new void Retreat()
@@ -107,7 +110,8 @@ public class PulsingSpiralEnemy : Enemy {
         transform.position = Vector2.MoveTowards(transform.position, target.transform.position, -speed);
         float angleFromVector = (float)Mathf.Atan2(direction.y, direction.x);
         angleFromVector = angleFromVector < 0 ? 6.3f + angleFromVector : angleFromVector;
-        anim.SetFloat("radDirection", angleFromVector);
+        if (anim != null)
+            anim.SetFloat("radDirection", angleFromVector);
     }
     private void CoolDownShot()
     {
